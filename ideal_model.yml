@@ -1,0 +1,28 @@
+---
+definitions:
+  aggregates:
+    station:
+      station: station
+  entities:
+    person:
+      id: id
+      name: name
+      age: age
+    station:
+      id: id
+      name: name
+      description: description
+      owner: person aggregate  
+      nicks: collectionOf name
+      wheels: collectionOf wheel
+  value-objects:
+    age:
+      type: long
+      min: 0
+      max: 130
+    id:
+      type: long
+    name:
+      type: string
+    description:
+      type: string

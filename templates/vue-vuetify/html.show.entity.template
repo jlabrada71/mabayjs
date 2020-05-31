@@ -1,0 +1,11 @@
+
+  <div id="form">
+  <!-- {{entityName}} -->
+    <v-form v-model="valid">
+      <v-container>
+        <v-row>
+           {{fieldsCode}}
+        </v-row>
+      </v-container>
+    </v-form>
+</div>

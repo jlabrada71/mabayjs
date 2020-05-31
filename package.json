@@ -1,0 +1,27 @@
+{
+  "name": "yaml",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest  --no-cache"
+  },
+  "jest": {
+    "testMatch": [
+      "**/tests/*.test.js?(x)"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules"
+    ]
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "7.9.6",
+    "@babel/preset-env": "7.9.6",
+    "babel-jest": "^24.9.0",
+    "handlebars": "4.7.6",
+    "jest": "^24.8.0",
+    "js-yaml": "^3.13.1"
+  }
+}

@@ -1,0 +1,6 @@
+definitions:
+  - station:
+      name:
+        type: string
+      descripcao:
+        type: string

@@ -1,0 +1,15 @@
+<template>
+  <div>
+    {{html}}
+  </div>
+</template>
+
+<style>
+   {{css}}
+</style>
+
+<script>
+export default {
+  {{script}}
+}
+</script>

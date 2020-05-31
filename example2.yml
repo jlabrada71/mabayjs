@@ -1,0 +1,24 @@
+definitions:
+  - itinerary:
+      startOffTerminal:
+        type: terminal
+      wrapupTerminal:
+        type: terminal
+      checkPoints:
+        type: array of checkpoint
+
+  - station:
+      id:
+        type: long
+      name:
+        type: string
+  - checkpoint:
+      id:
+        type: long
+      name:
+        type: string
+  - terminal:
+      id:
+        type: long
+      name:
+        type: string

@@ -1,0 +1,16 @@
+definitions:
+  - station:
+      id:
+        type: long
+      name:
+        type: string
+  - checkpoint:
+      id:
+        type: long
+      name:
+        type: string
+  - terminal:
+      id:
+        type: long
+      name:
+        type: string

@@ -1,0 +1,5 @@
+  name: '{{entityName}}',
+  data: () => ({
+    valid: false,
+    {{fieldsCode}}
+  }),
