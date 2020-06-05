@@ -12,10 +12,12 @@ definitions:
       id: id
       name: name
       description: description
-      owner: person aggregate  
+      owner: person aggregate
       nicks: collectionOf name
       wheels: collectionOf wheel
-  value-objects:
+  value_objects:
+    date:
+      type: date
     age:
       type: long
       min: 0

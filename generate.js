@@ -2,7 +2,7 @@ const AppGenerator  = require('./lib/app-generator');
 const fs = require('fs');
 
 if( process.argv.length < 5 ) {
-  console.log('Usage: generate file templatesPath outputPath');
+  console.log('Usage: generate modelFile templatesPath outputPath');
   return;
 }
 

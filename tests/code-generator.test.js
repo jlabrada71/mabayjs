@@ -13,7 +13,7 @@ describe('CodeGenerator tests', () => {
 
   });
 
-  function FakeReader( key,type, source ) {
+  function FakeReader( type, key, source ) {
     this.key = key;
     this.source = source;
     this.type = type;
@@ -26,11 +26,22 @@ describe('CodeGenerator tests', () => {
   it('should generate code', () => {
     let source =  '<h1>{{title}}</h1>{{body}}';
     let templateCompiler = new TemplateCompiler();
-    templateCompiler.compile( new FakeReader( 'string', 'field', source ) );
+    templateCompiler.compile( new FakeReader( 'field', 'string',  source ) );
     let codeGenerator = new CodeGenerator( templateCompiler.getTemplates());
 
     var data = {title: "My New Post", body: "This is my first post!"};
-    var result    = codeGenerator.generate( data, 'field', 'string');
+    var result    = codeGenerator.generate( data, { type: 'field', key: 'string' });
     expect( result ).toBe('<h1>My New Post</h1>This is my first post!');
+  });
+
+  it('should generate code for value objects', () => {
+    let source =  '<h1>{{name}}</h1>';
+    let templateCompiler = new TemplateCompiler();
+    templateCompiler.compile( new FakeReader( 'field', 'name',  source ) );
+    let codeGenerator = new CodeGenerator( templateCompiler.getTemplates());
+
+    var data = {name: 'Juan'};
+    var result    = codeGenerator.generate( data, { type: 'field', key: 'name' });
+    expect( result ).toBe('<h1>Juan</h1>');
   });
 });

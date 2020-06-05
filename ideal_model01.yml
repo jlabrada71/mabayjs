@@ -1,0 +1,15 @@
+---
+definitions:
+  aggregates:
+    - policy
+  entities:
+    policy:
+      id: id
+      proposalDate: date
+      approvalDate: date
+      expirationDate: date
+  value_objects:
+    date:
+      type: date
+    id:
+      type: long

@@ -6,6 +6,9 @@ describe('Story Details API Testing', () => {
   });
 
   it('should learn whats the next problem from the student profile', () => {
-    console.log(process.argv);
-  });  
+    expect(process.argv).toEqual(
+      ['/usr/local/bin/node',
+        '/Users/jlabrada/Documents/source/yaml/node_modules/jest-worker/build/workers/processChild.js']
+    );
+  });
 });

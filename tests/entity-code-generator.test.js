@@ -14,10 +14,10 @@ describe('EntityCodeGenerator tests', () => {
 
   });
 
-  function FakeReader( key,type, source ) {
-    this.key = key;
+  function FakeReader( key, source ) {
+    this.key = key.key;
     this.source = source;
-    this.type = type;
+    this.type = key.type;
   }
 
   FakeReader.prototype.read = function() {
@@ -29,7 +29,7 @@ describe('EntityCodeGenerator tests', () => {
 
     let mainTemplateCompiler = new TemplateCompiler();
 
-    mainTemplateCompiler.compile( new FakeReader( 'main', 'main', main ) );
+    mainTemplateCompiler.compile( new FakeReader( {type:'main', key:'main'}, main ) );
 
     return mainTemplateCompiler.getTemplates();
   }
@@ -39,22 +39,23 @@ describe('EntityCodeGenerator tests', () => {
 
     let mainTemplateCompiler = new TemplateCompiler();
 
-    mainTemplateCompiler.compile( new FakeReader( 'main', 'main', main ) );
+    mainTemplateCompiler.compile( new FakeReader( {type:'main', key:'main'}, main ) );
 
     return mainTemplateCompiler.getTemplates();
   }
 
   function oneFieldEntityTemplateHtml() {
     let fieldSource =  '<li>{{fieldName}}</li>';
-    let entitySource = '<body><h1>{{entityName}}</h1> <lu>{{fieldsCode}}</lu></body>';
+    let entitySource = '<body><h1>{{entityName}}</h1><lu>{{fieldsCode}}</lu></body>';
 
     let templateCompiler = new TemplateCompiler();
 
-    templateCompiler.compile( new FakeReader( 'string', 'field', fieldSource ) );
-    templateCompiler.compile( new FakeReader( 'entity', 'entity', entitySource ) );
+    templateCompiler.compile( new FakeReader( {type:'field', key:'name'}, fieldSource ) );
+    templateCompiler.compile( new FakeReader( {type:'entity', key:'entity'}, entitySource ) );
 
     return templateCompiler.getTemplates();
   }
+
 
   function oneFieldEntityTemplateCss() {
     let fieldSource =  '|{{fieldName}}|';
@@ -62,8 +63,8 @@ describe('EntityCodeGenerator tests', () => {
 
     let templateCompiler = new TemplateCompiler();
 
-    templateCompiler.compile( new FakeReader( 'string', 'field', fieldSource ) );
-    templateCompiler.compile( new FakeReader( 'entity', 'entity', entitySource ) );
+    templateCompiler.compile( new FakeReader( {type:'field', key:'name'}, fieldSource ) );
+    templateCompiler.compile( new FakeReader( {type:'entity', key:'entity'}, entitySource ) );
 
     return templateCompiler.getTemplates();
   }
@@ -80,49 +81,75 @@ describe('EntityCodeGenerator tests', () => {
 
   it('should generate definition code', () => {
 
-    let entityCodeGenerator = new EntityCodeGenerator();
+    let entityCodeGenerator = new EntityCodeGenerator( 'html',
+                                      new CodeGenerator( oneFieldEntityTemplateHtml() ));
 
-    entityCodeGenerator.add( 'main', new CodeGenerator( mainHtmlCss() ));
-    entityCodeGenerator.add( 'html', new CodeGenerator( oneFieldEntityTemplateHtml() ));
-    entityCodeGenerator.add( 'css', new CodeGenerator( oneFieldEntityTemplateCss() ));
+    let entity = new EntityDefinition({'Itinerary':{'name':{'type':'name'}}});
 
-    //console.log('contexts');
-    //console.log( entityCodeGenerator.contexts);
-    //console.log('---------');
-
-    let entity = new EntityDefinition({'Itinerary':{'name':{'type':'string'}}});
-
-
-    let entityCode = entityCodeGenerator.generate( entity );
+    let entityCode = entityCodeGenerator.generateCodeFor( entity );
     entityCode = unEscape( entityCode );
-    expect( entityCode ).toBe('<html><body><h1>Itinerary</h1> <lu><li>name</li></lu></body></html><css>|Itinerary|||name||</css>');
+    expect( entityCode ).toBe('<body><h1>Itinerary</h1><lu><li>name</li></lu></body>');
   });
 
+  function oneFieldEntityTemplateHtmlComplex() {
+    let fieldSource =  '<v-text-field label="{{fieldName}}" v-model="{{entityDotFieldName}}">{{fieldName}}</v-text-field><a>{{expandedFieldName}}</a><span>{{expandedEntityDotFieldName}}</span>';
+    let entitySource = '<v-form><h1>{{entityName}}</h1><a>{{expandedEntityName}}</a>{{fieldsCode}}</v-form>';
+
+    let templateCompiler = new TemplateCompiler();
+
+    templateCompiler.compile( new FakeReader( {type:'field', key:'name'}, fieldSource ) );
+    templateCompiler.compile( new FakeReader( {type:'entity', key:'entity'}, entitySource ) );
+
+    return templateCompiler.getTemplates();
+  }
+
+  it('should generate complex definition code', () => {
+
+    let entityCodeGenerator = new EntityCodeGenerator( 'html',
+                                      new CodeGenerator( oneFieldEntityTemplateHtmlComplex() ));
+
+    let entity = new EntityDefinition({'itinerary':{'name':{'type':'name'}}});
+
+    let entityCode = entityCodeGenerator.generateCodeFor( entity );
+    entityCode = unEscape( entityCode );
+    expect( entityCode ).toBe('<v-form><h1>itinerary</h1><a>{{itinerary}}</a><v-text-field label="name" v-model="itinerary.name">name</v-text-field><a>{{name}}</a><span>{{itinerary.name}}</span></v-form>');
+  });
+
+
+  it('should generate definition code', () => {
+
+    let entityCodeGenerator = new EntityCodeGenerator( 'css', new CodeGenerator( oneFieldEntityTemplateCss() ));
+    let entity = new EntityDefinition({'Itinerary':{'name':{'type':'name'}}});
+
+
+    let entityCode = entityCodeGenerator.generateCodeFor( entity );
+    entityCode = unEscape( entityCode );
+    expect( entityCode ).toBe('|Itinerary|||name||');
+  });
+
+
   function twoFieldEntityTemplate() {
-    let fieldSource =  '<li>{{fieldName}}</li>';
-    let longFieldSource =  '<li>pp{{fieldName}}pp</li>';
+    let nameFieldSource =  '<li>{{fieldName}}';
+    let domainFieldSource =  '@{{fieldName}}</li>';
     let entitySource = '<body><h1>{{entityName}}</h1> <lu>{{fieldsCode}}</lu></body>';
 
     let templateCompiler = new TemplateCompiler();
 
-    templateCompiler.compile( new FakeReader( 'string', 'field', fieldSource ) );
-    templateCompiler.compile( new FakeReader( 'long', 'field', longFieldSource ) );
-    templateCompiler.compile( new FakeReader( 'entity', 'entity', entitySource ) );
+    templateCompiler.compile( new FakeReader( {type:'field', key:'name'}, nameFieldSource ) );
+    templateCompiler.compile( new FakeReader( {type:'field', key:'domain'}, domainFieldSource ) );
+    templateCompiler.compile( new FakeReader( {type:'entity', key:'entity'}, entitySource ) );
 
     return templateCompiler.getTemplates();
   }
 
   it('should generate definition code for long and string', () => {
-    let entityCodeGenerator = new EntityCodeGenerator();
+    let entityCodeGenerator = new EntityCodeGenerator('html', new CodeGenerator( twoFieldEntityTemplate() ));
 
-    entityCodeGenerator.add( 'main', new CodeGenerator( mainHtml() ));
-    entityCodeGenerator.add( 'html', new CodeGenerator( twoFieldEntityTemplate() ));
+    let entity = new EntityDefinition({'email':{'name':{'type':'name'},'domain':{'type':'domain'}}});
 
-    let entity = new EntityDefinition({'Itinerary':{'name':{'type':'string'},'age':{'type':'long'}}});
-
-    let entityCode = entityCodeGenerator.generate( entity );
+    let entityCode = entityCodeGenerator.generateCodeFor( entity );
     entityCode = unEscape( entityCode );
 
-    expect( entityCode ).toBe('<html><body><h1>Itinerary</h1> <lu><li>name</li><li>ppagepp</li></lu></body></html>');
+    expect( entityCode ).toBe('<body><h1>email</h1> <lu><li>name@domain</li></lu></body>');
   });
 });

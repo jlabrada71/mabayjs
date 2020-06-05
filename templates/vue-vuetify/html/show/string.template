@@ -3,8 +3,8 @@
   md="4"
 >
   <v-text-field
-    v-model="{{fieldName}}"
-    label="{{fieldName}}"
+    v-model="{{primitive}}"
+    label="{{primitive}}"
     required
   ></v-text-field>
 </v-col>
