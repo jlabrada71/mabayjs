@@ -4,7 +4,7 @@
     <v-form v-model="valid">
       <v-container>
         <v-row>
-           {{fieldsCode}}
+           {{propertiesCode}}
         </v-row>
       </v-container>
     </v-form>

@@ -44,7 +44,6 @@ describe('TaskCodeGenerator tests', () => {
   }
 
   it('should generate task code', () => {
-
     let taskCodeGenerator = new TaskCodeGenerator( [{name:'html', value: 'juan'},
                                                     {name:'css', value: 'pedro'},
                                                     {name:'script', value: 'de la mar'}],

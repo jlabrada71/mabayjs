@@ -44,4 +44,5 @@ describe('CodeGenerator tests', () => {
     var result    = codeGenerator.generate( data, { type: 'field', key: 'name' });
     expect( result ).toBe('<h1>Juan</h1>');
   });
+
 });

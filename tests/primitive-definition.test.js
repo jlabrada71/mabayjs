@@ -30,9 +30,9 @@ describe('ValueObjectDefinition tests', () => {
   it('should return the models details', () => {
     let model =[new ValueObjectDefinition({'itinerary':{'name':'string'}})];
 
-    let value = model[0];
+    let entity = model[0];
 
-    let details = value.details();;
+    let details = entity.details();;
     expect( details ).toStrictEqual({'name':'string'});
 
   });
@@ -44,9 +44,9 @@ describe('ValueObjectDefinition tests', () => {
                                             })
                 ];
 
-    let value = model[0];
+    let entity = model[0];
 
-    let deepDetails = value.deepDetails();
+    let deepDetails = entity.deepDetails();
     expect( deepDetails ).toStrictEqual({'type':'string'});
 
   });
