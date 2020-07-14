@@ -59,8 +59,10 @@ describe('AggregateCodeGenerator tests', () => {
     model.definitions.aggregates = {};
     model.definitions.aggregates.person = 'person';
 
-    let aggregateCodeGenerator = new AggregateCodeGenerator( model, 'html',
-                                      new CodeGenerator( oneFieldEntityTemplateHtml() ));
+    let htmlCodeGenerator = new CodeGenerator( oneFieldEntityTemplateHtml() );
+    let aggregateCodeGenerator = new AggregateCodeGenerator( model,
+                                      htmlCodeGenerator );
+
     let aggregateCode = aggregateCodeGenerator.generateCodeFor( 'person' );
     aggregateCode = unEscape( aggregateCode );
     expect( aggregateCode ).toBe('<body><h1>person</h1>'+
@@ -98,8 +100,10 @@ describe('AggregateCodeGenerator tests', () => {
     model.definitions.aggregates = {};
     model.definitions.aggregates.person = 'person';
 
-    let aggregateCodeGenerator = new AggregateCodeGenerator( model, 'html',
-                                      new CodeGenerator( oneFieldEntityTemplateHtml() ));
+    let htmlCodeGenerator = new CodeGenerator( oneFieldEntityTemplateHtml() );
+    let aggregateCodeGenerator = new AggregateCodeGenerator( model,
+                                      htmlCodeGenerator );
+
     let aggregateCode = aggregateCodeGenerator.generateCodeFor( 'person' );
     aggregateCode = unEscape( aggregateCode );
     expect( aggregateCode ).toBe('<body><h1>person</h1>'+
