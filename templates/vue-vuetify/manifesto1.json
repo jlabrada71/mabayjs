@@ -1,6 +1,7 @@
 {
    "ext":".vue",
    "folder": "src/components",
+   "fileNameTemplate" : "{{pascal entityName}}{{pascal usecase}}",
    "technologies":[
       "vue-vuetify"
    ],
