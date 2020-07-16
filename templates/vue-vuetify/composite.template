@@ -1,4 +1,9 @@
 
-{{html}}
+<template>
+  {{html}}
+</template>
+<script>
 {{script}}
+</script>
+
 {{css}}

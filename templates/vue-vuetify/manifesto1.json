@@ -23,11 +23,6 @@
          "key":"name",
          "type":"property",
          "definition":"name.template"
-      },
-      {
-         "key":"age",
-         "type":"property",
-         "definition":"age.template"
       }
    ]
 }
