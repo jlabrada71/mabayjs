@@ -1,5 +1,6 @@
 {
    "ext":".vue",
+   "folder": "src/components",
    "technologies":[
       "vue-vuetify"
    ],
