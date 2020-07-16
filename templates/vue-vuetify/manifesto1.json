@@ -7,9 +7,11 @@
       "show"
    ],
    "entity":"entity.template",
-   "contextMixer":"mixer",
+   "contextComposite":"composite.template",
    "contexts":[
-      "html"
+      "html",
+      "script",
+      "css"
    ],
    "primitives":[
       {

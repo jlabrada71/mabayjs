@@ -1,1 +1,3 @@
-<p>{{primitive}}</p>
+.{{propertyName}} {
+
+}
