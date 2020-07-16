@@ -23,5 +23,8 @@
     "handlebars": "4.7.6",
     "jest": "^24.8.0",
     "js-yaml": "^3.13.1"
+  },
+  "dependencies": {
+    "lodash": "4.17.19"
   }
 }

@@ -1,12 +1,12 @@
-c-{{entityName}}-form {
+c-{{kebab entityName}}-form {
 
 }
 
-c-{{entityName}}-form__title {
+c-{{kebab entityName}}-form__title {
 
 }
 
-c-{{entityName}}-form-actions {
-  
+c-{{kebab entityName}}-form-actions {
+
 }
 {{propertiesCode}}

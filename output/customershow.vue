@@ -4,11 +4,11 @@
   <div id="customer-form">
     <v-container>
       <v-card class="c-customer-form">
-        <v-card-title class="c-customer-form__title">customer</v-card-title>
+        <v-card-title class="c-customer-form__title">Customer</v-card-title>
         <v-form>
-          <v-text-field label="id" v-model="{{customer.id}}"></v-text-field>
-<v-text-field label="name" v-model="{{customer.name}}"></v-text-field>
-<v-text-field label="address" v-model="{{customer.address}}"></v-text-field>
+          <v-text-field label="Id" v-model="{{customer.id}}"></v-text-field>
+<v-text-field label="Name" v-model="{{customer.name}}"></v-text-field>
+<v-text-field label="Address" v-model="{{customer.address}}"></v-text-field>
 
         </v-form>
       <v-card-actions class="c-customer-form-actions">
@@ -23,18 +23,18 @@
 </template>
 <script>
 export default {
-  name: 'customerForm',
+  name: 'CustomerForm',
   props: {
     customer: Object,
     isUpdating: Boolean,
   },
   data: () => ({
     valid: false,
-    actionText: 'Add customer',
+    actionText: 'Add Customer',
   }),
   watch: {
     isUpdating(updating) {
-      this.actionText = updating ? 'Update customer' : 'Add customer';
+      this.actionText = updating ? 'Update Customer' : 'Add Customer';
     },
   },
   methods: {
@@ -62,7 +62,7 @@ c-customer-form__title {
 }
 
 c-customer-form-actions {
-  
+
 }
 
 
