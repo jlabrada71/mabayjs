@@ -1,1 +1,0 @@
-<v-text-field label="{{pascal propertyName}}" v-model="{{expandedEntityDotPropertyName}}"></v-text-field>

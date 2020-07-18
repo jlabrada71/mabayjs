@@ -1,0 +1,24 @@
+export default {
+  name: '{{entityName}}-list',
+  props: {
+    {{entityName}}s: Array,
+  },
+  methods: {
+    delete{{pascal entityName}}({{entityName}}) {
+      this.$emit('delete-{{entityName}}', {{entityName}});
+      // alert(`deleting ${JSON.stringify({{entityName}})}`);
+    },
+    editCustomer(customer) {
+      this.$emit('edit-{{entityName}}', {{entityName}});
+      // alert(`editing ${JSON.stringify({{entityName}})}`);
+    },
+    show{{pascal entityName}}({{entityName}}) {
+      this.$emit('show-{{entityName}}', {{entityName}});
+      // alert(`showing ${JSON.stringify({{entityName}})}`);
+    },
+  },
+  data: () => ({
+    valid: false,
+  }),
+
+};

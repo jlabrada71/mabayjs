@@ -6,9 +6,9 @@
       <v-card class="c-customer-form">
         <v-card-title class="c-customer-form__title">Customer</v-card-title>
         <v-form>
-          <v-text-field label="Id" v-model="{{customer.id}}"></v-text-field>
-<v-text-field label="Name" v-model="{{customer.name}}"></v-text-field>
-<v-text-field label="Address" v-model="{{customer.address}}"></v-text-field>
+          <v-text-field label="Id" v-model="customer.id"></v-text-field>
+<v-text-field label="Name" v-model="customer.name"></v-text-field>
+<v-text-field label="Address" v-model="customer.address"></v-text-field>
 
         </v-form>
       <v-card-actions class="c-customer-form-actions">
@@ -52,7 +52,7 @@ export default {
 };
 
 </script>
-
+<style>
 c-customer-form {
 
 }
@@ -66,3 +66,4 @@ c-customer-form-actions {
 }
 
 
+</style>

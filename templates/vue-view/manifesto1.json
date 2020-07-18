@@ -1,13 +1,12 @@
 {
    "ext":".vue",
+   "folder": "src/components",
    "fileNameTemplate" : "{{pascal entityName}}{{pascal usecase}}",
    "technologies":[
       "vue-vuetify"
    ],
    "useCases":[
-      {"name":"form", "folder":"src/components" },
-      {"name":"details", "folder":"src/components" },
-      {"name":"list", "folder":"src/components" }
+      "form", "details", "list"
    ],
    "entity":"entity.template",
    "contextComposite":"composite.template",

@@ -1,0 +1,13 @@
+{
+  ext: '.vue',
+  technologies: ['vue-vuetify'],
+  useCases: ['show'],
+  entity: 'entity.template',
+  contextMixer : 'mixer',
+  contexts:['html', 'css','script'],
+  primitives: [
+                {key:'entity', type: 'entity', definition:'entity.template'},
+                {key:'string', type: 'property', definition:'string.template'},
+                {key:'long',   type: 'property', definition:'long.template'},
+             ],
+}

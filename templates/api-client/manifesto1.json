@@ -1,20 +1,17 @@
 {
-   "ext":".vue",
-   "fileNameTemplate" : "{{pascal entityName}}{{pascal usecase}}",
+   "ext":".js",
+   "folder": "src/lib",
+   "fileNameTemplate" : "{{entityName}}-{{usecase}}-proxy",
    "technologies":[
-      "vue-vuetify"
+      "api-client"
    ],
    "useCases":[
-      {"name":"form", "folder":"src/components" },
-      {"name":"details", "folder":"src/components" },
-      {"name":"list", "folder":"src/components" }
+      "repository"
    ],
    "entity":"entity.template",
    "contextComposite":"composite.template",
    "contexts":[
-      "html",
-      "script",
-      "css"
+      "script"
    ],
    "primitives":[
       {

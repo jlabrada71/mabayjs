@@ -1,0 +1,59 @@
+import axios from 'axios';
+
+export default class {{pascal entityName}}RepositoryProxy {
+  static async findAll() {
+    try {
+      const url = `${process.env.VUE_APP_API_SERVER}/api/v1/{{entityName}}s`;
+      const response = await axios.get(url);
+      return response.data;
+    } catch (e) {
+      alert(e);
+    }
+    return [];
+  }
+
+  static async delete({{entityName}}) {
+    const url = `${process.env.VUE_APP_API_SERVER}/api/v1/{{entityName}}s/${ {{entityName}}._id}`;
+    try {
+      await axios.delete(url, {
+        //    headers: {
+        //      Authorization: authorizationToken
+        //    },
+        //    data: {
+        //      source: source
+        //    }
+      });
+    } catch (e) {
+      alert(e);
+    }
+  }
+
+  static async add({{entityName}}) {
+    const url = `${process.env.VUE_APP_API_SERVER}/api/v1/{{entityName}}s`;
+    try {
+      await axios.post(url, {
+      //    headers: {
+      //      Authorization: authorizationToken
+      //    },
+        {{entityName}},
+      });
+    } catch (e) {
+      alert(e);
+    }
+  }
+
+  static async update({{entityName}}) {
+    alert(JSON.stringify({{entityName}}));
+    const url = `${process.env.VUE_APP_API_SERVER}/api/v1/{{entityName}}s/${ {{entityName}}._id}`;
+    try {
+      await axios.put(url, {
+      //    headers: {
+      //      Authorization: authorizationToken
+      //    },
+        {{entityName}},
+      });
+    } catch (e) {
+      alert(e);
+    }
+  }
+}

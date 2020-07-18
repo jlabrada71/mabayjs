@@ -2,7 +2,7 @@
   <div id="{{entityName}}-form">
     <v-container>
       <v-card class="c-{{entityName}}-form">
-        <v-card-title class="c-{{entityName}}-form__title">{{entityName}}</v-card-title>
+        <v-card-title class="c-{{entityName}}-form__title">{{pascal entityName}}</v-card-title>
         <v-form>
           {{propertiesCode}}
         </v-form>
