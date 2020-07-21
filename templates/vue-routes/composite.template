@@ -1,0 +1,7 @@
+export default class AggregateRoutes {
+  static findAll() {
+    const routes = [];
+    {{script}}
+    return routes;
+  }
+}
