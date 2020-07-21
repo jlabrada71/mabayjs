@@ -1,30 +1,20 @@
-  <div id="{{entityName}}-list">
-    <v-container class="grey lighten-5">
-      <v-card
-        class="mx-auto"
-        max-width="400"
-        tile
-      >
-      <v-card-title>{{pascal entityName}}s</v-card-title>
-        <v-list :nav="nav">
 
-          <v-list-item-group v-model="item" color="primary">
-            <v-list-item v-for="({{entityName}}, index) in {{entityName}}s" :key="index">
-              <v-list-item-avatar v-if="avatar">
-                <v-img :src="item.avatar"></v-img>
-              </v-list-item-avatar>
-              <v-list-item-content>
-                <v-row>
-                  {{propertiesCode}}
-                  <v-col>
-                    <v-icon v-on:click="edit{{pascal entityName}}({{entityName}})">edit</v-icon>
-                    <v-icon v-on:click="delete{{pascal entityName}}(entityName)">delete</v-icon>
-                  </v-col>
-                </v-row>
-              </v-list-item-content>
-            </v-list-item>
-          </v-list-item-group>
-        </v-list>
-      </v-card>
-   </v-container>
+  <div class="{{entityName}}">
+    <{{pascal entityName}}Details v-bind:{{entityName}}="current{{pascal entityName}}"
+      v-show="isVisible{{pascal entityName}}Details"
+      v-on:close-{{entityName}}-details="close{{pascal entityName}}Details"/>
+
+    <v-icon @click="showAdd{{pascal entityName}}Form" v-show="!isVisible{{pascal entityName}}Form">add_circle</v-icon>
+    <{{pascal entityName}}Form
+      v-show="isVisible{{pascal entityName}}Form"
+      v-bind:{{entityName}}="current{{pascal entityName}}"
+      v-bind:is-updating="isUpdating{{pascal entityName}}"
+      v-on:add-{{entityName}}="add{{pascal entityName}}"
+      v-on:update-{{entityName}}="update{{pascal entityName}}"
+      v-on:cancel-add-{{entityName}}="cancelAdd{{pascal entityName}}"/>
+    <h1 class="display-2 blue darken-4 white--text text--lighten-1">{{pascal entityName}} list</h1>
+    <{{pascal entityName}}List v-bind:{{entityName}}s="{{entityName}}s"
+      v-on:show-{{entityName}}="show{{pascal entityName}}Details"
+      v-on:edit-{{entityName}}="edit{{pascal entityName}}"
+      v-on:delete-{{entityName}}="delete{{pascal entityName}}"/>
   </div>

@@ -1,12 +1,11 @@
 {
    "ext":".js",
-   "folder": "src/lib",
    "fileNameTemplate" : "{{entityName}}-{{usecase}}-proxy",
    "technologies":[
       "api-client"
    ],
    "useCases":[
-      "repository"
+       {"name":"repository", "folder":"src/lib" }
    ],
    "entity":"entity.template",
    "contextComposite":"composite.template",

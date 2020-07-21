@@ -1,24 +1,84 @@
+import {{pascal entityName}}List from '@/components/{{pascal entityName}}List.vue';
+import {{pascal entityName}}Form from '@/components/{{pascal entityName}}Form.vue';
+import {{pascal entityName}}Details from '@/components/{{pascal entityName}}Details.vue';
+import {{pascal entityName}}RepositoryProxy from '@/lib/{{entityName}}-repository-proxy';
+
 export default {
-  name: '{{entityName}}-list',
-  props: {
-    {{entityName}}s: Array,
+  name: '{{pascal entityName}}',
+
+  components: {
+    {{pascal entityName}}List,
+    {{pascal entityName}}Form,
+    {{pascal entityName}}Details,
   },
-  methods: {
-    delete{{pascal entityName}}({{entityName}}) {
-      this.$emit('delete-{{entityName}}', {{entityName}});
-      // alert(`deleting ${JSON.stringify({{entityName}})}`);
-    },
-    editCustomer(customer) {
-      this.$emit('edit-{{entityName}}', {{entityName}});
-      // alert(`editing ${JSON.stringify({{entityName}})}`);
-    },
-    show{{pascal entityName}}({{entityName}}) {
-      this.$emit('show-{{entityName}}', {{entityName}});
-      // alert(`showing ${JSON.stringify({{entityName}})}`);
-    },
-  },
+
   data: () => ({
-    valid: false,
+    {{entityName}}s: [],
+    current{{pascal entityName}}: { name: '', address: '' },
+    isVisible{{pascal entityName}}Form: false,
+    isVisible{{pascal entityName}}Details: false,
+    isUpdating{{pascal entityName}}: false,
   }),
 
+  mounted() {
+    this.get{{pascal entityName}}s();
+  },
+
+  methods: {
+    async get{{pascal entityName}}s() {
+      this.{{entityName}}s = await {{pascal entityName}}RepositoryProxy.findAll();
+    },
+
+    async delete{{pascal entityName}}({{entityName}}) {
+      await {{pascal entityName}}RepositoryProxy.delete({{entityName}});
+      await this.get{{pascal entityName}}s();
+    },
+
+    async add{{pascal entityName}}({{entityName}}) {
+      // alert(`adding {{entityName}} ${JSON.stringify({{entityName}})}`);
+      await {{pascal entityName}}RepositoryProxy.add({{entityName}});
+      await this.get{{pascal entityName}}s();
+      this.hide{{pascal entityName}}Form();
+    },
+
+    async update{{pascal entityName}}({{entityName}}) {
+      // alert(`adding {{entityName}} ${JSON.stringify({{entityName}})}`);
+      await {{pascal entityName}}RepositoryProxy.update({{entityName}});
+      await this.get{{pascal entityName}}s();
+      this.hide{{pascal entityName}}Form();
+    },
+
+    show{{pascal entityName}}Details({{entityName}}) {
+      this.current{{pascal entityName}} = {{entityName}};
+      this.isVisible{{pascal entityName}}Details = true;
+    },
+
+    close{{pascal entityName}}Details() {
+      this.isVisible{{pascal entityName}}Details = false;
+    },
+
+    edit{{pascal entityName}}({{entityName}}) {
+      this.isUpdating{{pascal entityName}} = true;
+      this.current{{pascal entityName}} = {{entityName}};
+      this.isVisible{{pascal entityName}}Form = true;
+    },
+
+    cancelAdd{{pascal entityName}}() {
+      this.hide{{pascal entityName}}Form();
+    },
+
+    hide{{pascal entityName}}Form() {
+      this.isVisible{{pascal entityName}}Form = false;
+    },
+
+    show{{pascal entityName}}Form() {
+      this.isVisible{{pascal entityName}}Form = true;
+    },
+
+    showAdd{{pascal entityName}}Form() {
+      this.isUpdating{{pascal entityName}} = false;
+      this.current{{pascal entityName}} = { name: '', address: '' };
+      this.isVisible{{pascal entityName}}Form = true;
+    },
+  },
 };
