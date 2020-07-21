@@ -1,11 +1,27 @@
 definitions:
   aggregates:
     customer : customer
+    product : product
+    order : order
+    category: category
   entities:
     customer:
       id: name
       name: name
       address: name
+    product:
+      id: name
+      name: name
+      address: name
+    order:
+      id: name
+      name: name
+      address: name
+    category:
+      id: name
+      name: name
+      address: name
+
   value_objects:
     date:
       name: name
