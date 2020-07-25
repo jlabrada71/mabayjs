@@ -58,10 +58,11 @@ describe('AggregateCodeGenerator tests', () => {
     }
     model.definitions.aggregates = {};
     model.definitions.aggregates.person = 'person';
+    const shouldGenerateProperties = true;
 
     let htmlCodeGenerator = new CodeGenerator( oneFieldEntityTemplateHtml() );
     let aggregateCodeGenerator = new AggregateCodeGenerator( model,
-                                      htmlCodeGenerator );
+                                      htmlCodeGenerator, shouldGenerateProperties );
 
     let aggregateCode = aggregateCodeGenerator.generateCodeFor( 'person' );
     aggregateCode = unEscape( aggregateCode );
@@ -99,10 +100,12 @@ describe('AggregateCodeGenerator tests', () => {
     }
     model.definitions.aggregates = {};
     model.definitions.aggregates.person = 'person';
+    const shouldGenerateProperties = true;
 
     let htmlCodeGenerator = new CodeGenerator( oneFieldEntityTemplateHtml() );
     let aggregateCodeGenerator = new AggregateCodeGenerator( model,
-                                      htmlCodeGenerator );
+                                      htmlCodeGenerator,
+                                      shouldGenerateProperties );
 
     let aggregateCode = aggregateCodeGenerator.generateCodeFor( 'person' );
     aggregateCode = unEscape( aggregateCode );
