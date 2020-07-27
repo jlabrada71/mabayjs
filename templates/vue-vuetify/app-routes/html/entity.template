@@ -1,0 +1,1 @@
+    <router-link to="/{{entityName}}s">{{pascal entityName}}s</router-link> |
