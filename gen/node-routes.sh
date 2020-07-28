@@ -1,1 +1,1 @@
-node generate.js ideal_model03.yml ./templates ./templates/node/routes/manifesto.json ./output
+node generate.js ideal_model03.yml ./templates ./templates/nodejs/routes/manifesto.json ./output
