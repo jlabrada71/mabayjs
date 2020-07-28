@@ -1,4 +1,3 @@
-
     const {{entityName}}sRoute = {
       path: '/{{entityName}}s',
       name: '{{pascal entityName}}s',

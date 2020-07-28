@@ -8,7 +8,7 @@ export default {
       this.$emit('delete-{{entityName}}', {{entityName}});
       // alert(`deleting ${JSON.stringify({{entityName}})}`);
     },
-    editCustomer(customer) {
+    edit{{pascal entityName}}({{entityName}}) {
       this.$emit('edit-{{entityName}}', {{entityName}});
       // alert(`editing ${JSON.stringify({{entityName}})}`);
     },
