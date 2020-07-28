@@ -1,0 +1,26 @@
+{
+    "ext": ".js",
+    "fileNameTemplate": "routes-register",
+    "technologies": [
+        "nodejs"
+    ],
+    "useCases": [
+        {
+            "name": "route-reg",
+            "folder": "routes"
+        }
+    ],
+    "entity": "entity.template",
+    "contextComposite": "route-reg/composite.template",
+    "contexts": [
+        "import", "registration"
+    ],
+    "generationStrategy": "combinedAggregate",
+    "primitives": [
+        {
+            "key": "entity",
+            "type": "entity",
+            "definition": "entity.template"
+        }
+    ]
+}

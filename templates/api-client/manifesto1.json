@@ -12,6 +12,7 @@
    "contexts":[
       "script"
    ],
+   "generationStrategy" :"singleAggregate",
    "primitives":[
       {
          "key":"entity",

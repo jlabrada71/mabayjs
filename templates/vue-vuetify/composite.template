@@ -1,6 +1,6 @@
 
 <template>
-  {{html}}
+{{html}}
 </template>
 <script>
 {{script}}

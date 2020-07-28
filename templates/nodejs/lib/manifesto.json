@@ -1,0 +1,26 @@
+{
+    "ext": ".js",
+    "fileNameTemplate": "{{entityName}}-repository",
+    "technologies": [
+        "nodejs"
+    ],
+    "useCases": [
+        {
+            "name": "lib",
+            "folder": "lib"
+        }
+    ],
+    "entity": "entity.template",
+    "contextComposite": "lib/composite.template",
+    "contexts": [
+        "javascript"
+    ],
+    "generationStrategy": "singleAggregate",
+    "primitives": [
+        {
+            "key": "entity",
+            "type": "entity",
+            "definition": "entity.template"
+        }
+    ]
+}

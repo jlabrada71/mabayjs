@@ -1,0 +1,87 @@
+const express = require('express');
+const { ObjectID } = require('mongodb');
+const {{pascal entityName}}Repository = require('../lib/{{entityName}}-repository');
+
+const router = express.Router();
+
+function handleError(resource, reason, message, code) {
+  console.log(`ERROR: ${reason}:${message}`);
+  resource.status(code || 500).json({ error: message });
+}
+
+function returnResult(result, res) {
+  res.json(result);
+}
+
+router.get('/', async (req, res) => {
+  const {{entityName}}Repository = new {{pascal entityName}}Repository();
+  try {
+    const result = await {{entityName}}Repository.select({})
+    // console.log(result);
+    returnResult(result, res);
+  } catch (e) {
+    console.log(e.stack)
+    returnResult('ocurrio error', res);
+  }
+});
+
+router.get('/:id', async (req, res, next) => {
+  const {{entityName}}Repository = new {{pascal entityName}}Repository();
+  try {
+    const record = { _id: ObjectID(req.params.id) };
+    const result = await {{entityName}}Repository.select(record);
+    returnResult(result, res);
+  } catch (e) {
+    console.log(e.stack)
+    returnResult('ocurrio error', res);
+  }
+});
+
+router.put('/:id', async (req, res, next) => {
+  const {{entityName}}Repository = new {{pascal entityName}}Repository();
+  try {
+    const record = { _id: ObjectID(req.params.id) };
+    const { {{entityName}} } = req.body;
+    if ('_id' in {{entityName}}) {
+      delete {{entityName}}._id;
+    }
+    // console.log('actualizando:');
+    // console.log(record);
+    // console.log('con los datos');
+    // console.log({{entityName}});
+    const result = await {{entityName}}Repository.update(record, { $set: {{entityName}} });
+    returnResult(result, res);
+  } catch (e) {
+    console.log(e.stack)
+    returnResult('ocurrio error', res);
+  }
+});
+
+router.delete('/:id', async (req, res, next) => {
+  const {{entityName}}Repository = new {{pascal entityName}}Repository();
+  try {
+    const record = { _id: ObjectID(req.params.id) };
+    // console.log('borrando');
+    // console.log(record);
+    const result = await {{entityName}}Repository.deleteRecord(record);
+    returnResult(result, res);
+  } catch (e) {
+    console.log(e.stack)
+    returnResult('ocurrio error', res);
+  }
+});
+
+router.post('/', async (req, res, next) => {
+  // console.log('adicionando');
+  // console.log(req.body.{{entityName}});
+  const {{entityName}}Repository = new {{pascal entityName}}Repository();
+  try {
+    const result = await {{entityName}}Repository.insert(req.body.{{entityName}});
+    returnResult(result, res);
+  } catch (e) {
+    console.log(e.stack)
+    returnResult('ocurrio error', res);
+  }
+});
+
+module.exports = router;

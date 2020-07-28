@@ -1,5 +1,4 @@
-
-  <div class="{{entityName}}">
+ <div class="{{entityName}}">
     <{{pascal entityName}}Details v-bind:{{entityName}}="current{{pascal entityName}}"
       v-show="isVisible{{pascal entityName}}Details"
       v-on:close-{{entityName}}-details="close{{pascal entityName}}Details"/>
