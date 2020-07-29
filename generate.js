@@ -25,6 +25,10 @@ Handlebars.registerHelper('kebab', function (aString) {
   return _.kebabCase( aString );
 })
 
+Handlebars.registerHelper('text', function (aString) {
+  return `{{${aString}}}`;
+})
+
 if( file !== undefined && templatePath !== undefined && outputPath != undefined ) {
   fs.exists(file, function(exists) {
 
