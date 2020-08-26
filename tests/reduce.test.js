@@ -25,7 +25,5 @@ describe('Story Details API Testing', () => {
 
     let itemc = entriesIterator.next();
     expect( itemc.done ).toBe( true );
-
   });
-
 });
