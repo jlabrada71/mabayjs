@@ -11,6 +11,7 @@ module.exports = class {{pascal entityName}}Repository {
 
   async insert(obj) {
     let client;
+    let result;
     try {
       client = await MongoClient.connect(this.connection /* process.env.MONGO_URL */, {
         useUnifiedTopology: true,
@@ -19,11 +20,13 @@ module.exports = class {{pascal entityName}}Repository {
 
       const dbo = client.db(this.database);
       const col = dbo.collection(this.collection);
-      await col.insertOne(obj);
+      result = await col.insertOne(obj);
     } catch (e) {
       console.log(e.stack);
+    } finally {
+      client.close();
     }
-    client.close();
+    return result;
   }
 
   async select(record) {

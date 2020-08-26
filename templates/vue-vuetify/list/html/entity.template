@@ -18,7 +18,7 @@
                   {{propertiesCode}}
                   <v-col>
                     <v-icon v-on:click="edit{{pascal entityName}}({{entityName}})">edit</v-icon>
-                    <v-icon v-on:click="delete{{pascal entityName}}(entityName)">delete</v-icon>
+                    <v-icon v-on:click="delete{{pascal entityName}}({{entityName}})">delete</v-icon>
                   </v-col>
                 </v-row>
               </v-list-item-content>

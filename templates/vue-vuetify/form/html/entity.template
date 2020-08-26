@@ -7,7 +7,7 @@
           {{propertiesCode}}
         </v-form>
       <v-card-actions class="c-{{entityName}}-form-actions">
-        <v-btn class="success" @click="submit">{{text actionText}}</v-btn>
+        <v-btn class="success" @click="submit">\{{actionText}}</v-btn>
         <v-btn class="cancel" @click="cancel">Cancel</v-btn>
       </v-card-actions>
     </v-card>
