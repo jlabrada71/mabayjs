@@ -26,7 +26,7 @@ Handlebars.registerHelper('kebab', function (aString) {
 })
 
 Handlebars.registerHelper('text', function (aString) {
-  return `{{${aString}}}`;
+  return '{{' + aString + '}}';
 })
 
 if( file !== undefined && templatePath !== undefined && outputPath != undefined ) {
