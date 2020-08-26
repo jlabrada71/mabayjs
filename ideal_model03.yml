@@ -12,11 +12,18 @@ definitions:
     product:
       id: name
       name: name
-      address: name
+      price: name
+      salePrice: name
     order:
       id: name
-      name: name
-      address: name
+      customerId: name
+      deliveryAddress: name
+    orderItem:
+      id: name
+      orderId: name
+      productId: name
+      quantity: name
+      price: name
     category:
       id: name
       name: name
