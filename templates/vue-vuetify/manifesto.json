@@ -25,9 +25,24 @@
          "definition":"entity.template"
       },
       {
+         "key":"id",
+         "type":"property",
+         "definition":"id.template"
+      },
+      {
          "key":"name",
          "type":"property",
          "definition":"name.template"
+      },
+      {
+         "key":"text",
+         "type":"property",
+         "definition":"text.template"
+      },
+      {
+         "key":"date",
+         "type":"property",
+         "definition":"date.template"
       }
    ]
 }

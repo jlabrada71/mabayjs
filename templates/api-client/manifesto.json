@@ -1,0 +1,43 @@
+{
+   "ext":".js",
+   "fileNameTemplate" : "{{entityName}}-{{usecase}}-proxy",
+   "technologies":[
+      "api-client"
+   ],
+   "useCases":[
+       {"name":"repository", "folder":"src/lib" }
+   ],
+   "entity":"entity.template",
+   "contextComposite":"composite.template",
+   "contexts":[
+      "script"
+   ],
+   "generationStrategy" :"singleAggregate",
+   "primitives":[
+      {
+         "key":"entity",
+         "type":"entity",
+         "definition":"entity.template"
+      },
+      {
+         "key":"id",
+         "type":"property",
+         "definition":"id.template"
+      },
+      {
+         "key":"name",
+         "type":"property",
+         "definition":"name.template"
+      },
+      {
+         "key":"text",
+         "type":"property",
+         "definition":"text.template"
+      },
+      {
+         "key":"date",
+         "type":"property",
+         "definition":"date.template"
+      }
+   ]
+}
