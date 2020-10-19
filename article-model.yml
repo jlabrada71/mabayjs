@@ -1,0 +1,26 @@
+---
+definitions:
+  aggregates:
+    - article
+    - comment
+  entities:
+    article:
+      id: id
+      title: text
+      text: text
+      publishDate: date
+    comment: 
+      id: id
+      articleId: id
+      text: text 
+      author: name 
+      email: text
+  primitives:
+    id:
+      type: long
+    name: 
+      type: string
+    text:
+      type: string
+    date: 
+      type: date
