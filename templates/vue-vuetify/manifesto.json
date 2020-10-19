@@ -5,10 +5,10 @@
       "vue-vuetify"
    ],
    "useCases":[
-      {"name":"form", "folder":"src/components" },
-      {"name":"details", "folder":"src/components" },
-      {"name":"list", "folder":"src/components" },
-      {"name":"view", "folder":"src/views" }
+      {"name":"form", "folder":"src/{{entityName}}/components" },
+      {"name":"details", "folder":"src/{{entityName}}/components" },
+      {"name":"list", "folder":"src/{{entityName}}/components" },
+      {"name":"view", "folder":"src/{{entityName}}/views" }
    ],
    "entity":"entity.template",
    "contextComposite":"composite.template",

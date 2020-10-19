@@ -7,7 +7,7 @@
     "useCases": [
         {
             "name": "routes",
-            "folder": "routes"
+            "folder": "{{entityName}}/routes/"
         }
     ],
     "entity": "entity.template",

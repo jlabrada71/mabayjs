@@ -5,7 +5,7 @@
       "api-client"
    ],
    "useCases":[
-       {"name":"repository", "folder":"src/lib" }
+       {"name":"repository", "folder":"src/{{entityName}}/lib" }
    ],
    "entity":"entity.template",
    "contextComposite":"composite.template",

@@ -7,7 +7,7 @@
     "useCases": [
         {
             "name": "lib",
-            "folder": "lib"
+            "folder": "{{entityName}}/lib"
         }
     ],
     "entity": "entity.template",

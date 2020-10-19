@@ -1,7 +1,7 @@
-import {{pascal entityName}}List from '@/components/{{pascal entityName}}List.vue';
-import {{pascal entityName}}Form from '@/components/{{pascal entityName}}Form.vue';
-import {{pascal entityName}}Details from '@/components/{{pascal entityName}}Details.vue';
-import {{pascal entityName}}RepositoryProxy from '@/lib/{{entityName}}-repository-proxy';
+import {{pascal entityName}}List from '@/{{entityName}}/components/{{pascal entityName}}List.vue';
+import {{pascal entityName}}Form from '@/{{entityName}}/components/{{pascal entityName}}Form.vue';
+import {{pascal entityName}}Details from '@/{{entityName}}/components/{{pascal entityName}}Details.vue';
+import {{pascal entityName}}RepositoryProxy from '@/{{entityName}}/lib/{{entityName}}-repository-proxy';
 
 export default {
   name: '{{pascal entityName}}',
