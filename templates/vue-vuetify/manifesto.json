@@ -53,6 +53,16 @@
          "key":"count",
          "type":"property",
          "definition":"count.template"
+      },
+      {
+         "key":"longtext",
+         "type":"property",
+         "definition":"longtext.template"
+      },
+      {
+         "key":"image",
+         "type":"property",
+         "definition":"image.template"
       }
    ]
 }
