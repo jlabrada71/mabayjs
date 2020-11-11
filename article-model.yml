@@ -7,8 +7,12 @@ definitions:
     article:
       id: id
       title: text
-      text: text
+      description: longtext
+      text: longtext
       publishDate: date
+      rating: rating
+      ratingCount: count
+      image: image
     comment: 
       id: id
       articleId: id
@@ -22,5 +26,13 @@ definitions:
       type: string
     text:
       type: string
+    longtext:
+      type: string
+    image: 
+      type: string
     date: 
       type: date
+    rating: 
+      type: long
+    count:
+      type: long
