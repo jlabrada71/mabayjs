@@ -34,7 +34,7 @@ Examples:
 
 **Generate nodejs route-registration files:**  
 
-    node generate.js article-model.yml ./templates ./templates/nodejs/lib/manifesto.json ./output
+    node generate.js article-model.yml ./templates ./templates/nodejs/route-reg/manifesto.json ./output
 
 **Generate nodejs routes files:**  
 
