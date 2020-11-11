@@ -43,6 +43,16 @@
          "key":"date",
          "type":"property",
          "definition":"date.template"
+      },
+      {
+         "key":"rating",
+         "type":"property",
+         "definition":"rating.template"
+      },
+      {
+         "key":"count",
+         "type":"property",
+         "definition":"count.template"
       }
    ]
 }
