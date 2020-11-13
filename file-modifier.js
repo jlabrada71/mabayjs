@@ -20,8 +20,8 @@ Handlebars.registerHelper('text', function (aString) {
 })
 
 if( process.argv.length < 6 ) {
-  console.log('Usage: add-vuex-element variableName storeFile templatesPath configFileName');
-  console.log('ex: node add-vuex-element.js pruebita ./templates/vuex/store/index.js ./templates/vuex config.json');
+  console.log('Usage: file-modifier variableName storeFile templatesPath configFileName');
+  console.log('ex: node file-modifier.js pruebita ./templates/modify/vuex/store/index.js ./templates/modify/vuex config.json');
   return;
 }
 

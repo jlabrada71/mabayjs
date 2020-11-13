@@ -1,0 +1,1 @@
+<v-textarea label="{{pascal propertyName}}" v-model="{{entityDotPropertyName}}"></v-textarea>

@@ -18,31 +18,31 @@ Examples:
 ---------
 **Generate vuetify routes file:**
 
-    node generate.js article-model.yml ./templates ./templates/vue-vuetify/app-routes/manifesto.json ./output
+    node generate.js article-model.yml ./templates/create ./templates/create/vue-vuetify/app-routes/manifesto.json ./output
 
 **Generate vuetify CRUD files:** 
 
-    node generate.js article-model.yml ./templates ./templates/vue-vuetify/manifesto.json ./output
+    node generate.js article-model.yml ./templates/create ./templates/create/vue-vuetify/manifesto.json ./output
 
 **Generate api-client files:**
 
-    node generate.js article-model.yml ./templates ./templates/api-client/manifesto.json ./output
+    node generate.js article-model.yml ./templates/create ./templates/create/api-client/manifesto.json ./output
 
 **Generate nodejs lib files:**  
 
-    node generate.js article-model.yml ./templates ./templates/nodejs/lib/manifesto.json ./output
+    node generate.js article-model.yml ./templates/create ./templates/create/nodejs/lib/manifesto.json ./output
 
 **Generate nodejs route-registration files:**  
 
-    node generate.js article-model.yml ./templates ./templates/nodejs/route-reg/manifesto.json ./output
+    node generate.js article-model.yml ./templates/create ./templates/create/nodejs/route-reg/manifesto.json ./output
 
 **Generate nodejs routes files:**  
 
-    node generate.js article-model.yml ./templates ./templates/nodejs/routes/manifesto.json ./output
+    node generate.js article-model.yml ./templates/create ./templates/create/nodejs/routes/manifesto.json ./output
 
 **Generate nodejs routes files:**  
 
-    node generate.js article-model.yml ./templates ./templates/nodejs/routes/manifesto.json ./output    
+    node generate.js article-model.yml ./templates/create ./templates/create/nodejs/routes/manifesto.json ./output    
 
 Model file structure
 -------------------- 
@@ -127,5 +127,41 @@ Create templates from sample code
 Add functionality to existing code
 ==================================
 
-    file-modifier.js
+    Usage: file-modifier variableName fileToModify templatesPath configFileName
+
+    example: node file-modifier.js pruebita ./templates/modify/vuex/store/index.js ./templates/modify/vuex 
+
+    Is recomended to modify a copy of the original file, to prevent unwanted errors.
+
+
+for example with variableName 'pruebita' the 'old' code will be replaced the 'new' one.
+
+'old' code
+
+state {
+
+}
+
+'new' code 
+state {
+    pruebita: null
+
+}
+    
+config.json
+-----------
+name : The name of the template
+variableTemplate: The templated used to generate the new code.
+variableTemplateMark: What needs to be replaced in the template.
+fileMark: What needs to be found out in the file and replaced by the template instanced.
+
+    {
+  "templates":[
+    {
+      "name": "state",
+      "variableTemplate": " state: {\n    ${variableName}: null,\n",
+      "variableTemplateMark": "${variableName}",
+      "fileMark": " state: {\n"
+    },
+}
 
