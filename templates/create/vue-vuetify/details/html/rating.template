@@ -1,1 +1,10 @@
-<v-list-item-title class="headline mb-1">{{expandedEntityDotPropertyName}}</v-list-item-title>
+        <v-list-item-title class="headline mb-1">
+            <v-rating  
+                dense
+                hover
+                length="5"
+                size="20"
+                value="3"
+                v-model="{{expandedEntityDotPropertyName}}"
+            ></v-rating>
+        </v-list-item-title>
