@@ -18,31 +18,31 @@ Examples:
 ---------
 **Generate vuetify routes file:**
 
-    node generate.js article-model.yml ./templates/create ./templates/create/vue-vuetify/app-routes/manifesto.json ./output
+    node generate.js models/sample/article-model.yml ./templates/create ./templates/create/vue-vuetify/app-routes/manifesto.json ./output
 
 **Generate vuetify CRUD files:** 
 
-    node generate.js article-model.yml ./templates/create ./templates/create/vue-vuetify/manifesto.json ./output
+    node generate.js models/sample/article-model.yml ./templates/create ./templates/create/vue-vuetify/manifesto.json ./output
 
 **Generate api-client files:**
 
-    node generate.js article-model.yml ./templates/create ./templates/create/api-client/manifesto.json ./output
+    node generate.js models/sample/article-model.yml ./templates/create ./templates/create/api-client/manifesto.json ./output
 
 **Generate nodejs lib files:**  
 
-    node generate.js article-model.yml ./templates/create ./templates/create/nodejs/lib/manifesto.json ./output
+    node generate.js models/sample/article-model.yml ./templates/create ./templates/create/nodejs/lib/manifesto.json ./output
 
 **Generate nodejs route-registration files:**  
 
-    node generate.js article-model.yml ./templates/create ./templates/create/nodejs/route-reg/manifesto.json ./output
+    node generate.js models/sample/article-model.yml ./templates/create ./templates/create/nodejs/route-reg/manifesto.json ./output
 
 **Generate nodejs routes files:**  
 
-    node generate.js article-model.yml ./templates/create ./templates/create/nodejs/routes/manifesto.json ./output
+    node generate.js models/sample/article-model.yml ./templates/create ./templates/create/nodejs/routes/manifesto.json ./output
 
 **Generate nodejs routes files:**  
 
-    node generate.js article-model.yml ./templates/create ./templates/create/nodejs/routes/manifesto.json ./output    
+    node generate.js models/sample/article-model.yml ./templates/create ./templates/create/nodejs/routes/manifesto.json ./output    
 
 Model file structure
 -------------------- 
@@ -121,7 +121,16 @@ manifesto.json
 Create templates from sample code
 =================================
 
-    generate_template.js
+    generate_template.js  <sampleFile> <entity> <templatePath> <technology> <usecase> <context> <outputpath>
+    ex: node ./generate_template.js serverMiddleware/api/note/lib/note-repository.js note templates/api node repository script output
+
+sampleFile: existing file that will be used to create the template
+entity: existing entity that will be used as a base for creating the template
+templatePath: folder where the template will be stored
+tecnology: node, vue, react
+use case: form, details, view
+context: Given a technology you can use different templates for different context, ex: for Vue you can have in the same file: html, script, css, so context allows to specify for which part of the final file the template will be used.
+outputPath: reserved for future use
 
 
 Add functionality to existing code
