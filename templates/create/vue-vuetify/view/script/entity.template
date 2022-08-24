@@ -1,84 +1,86 @@
-import {{pascal entityName}}List from '@/{{entityName}}/components/{{pascal entityName}}List.vue';
-import {{pascal entityName}}Form from '@/{{entityName}}/components/{{pascal entityName}}Form.vue';
-import {{pascal entityName}}Details from '@/{{entityName}}/components/{{pascal entityName}}Details.vue';
-import {{pascal entityName}}RepositoryProxy from '@/{{entityName}}/lib/{{entityName}}-repository-proxy';
+import {{pascal entityName}} from '@/{{entityName}}/lib/{{entityName}}'
+import {{pascal entityName}}List from '@/{{entityName}}/components/{{pascal entityName}}List.vue'
+import {{pascal entityName}}Form from '@/{{entityName}}/components/{{pascal entityName}}Form.vue'
+import {{pascal entityName}}Details from '@/{{entityName}}/components/{{pascal entityName}}Details.vue'
+import {{pascal entityName}}RepositoryProxy from '@/{{entityName}}/lib/{{entityName}}-repository-proxy'
 
 export default {
-  name: '{{pascal entityName}}',
+  name: '{{pascal entityName}}View',
 
   components: {
     {{pascal entityName}}List,
     {{pascal entityName}}Form,
-    {{pascal entityName}}Details,
+    {{pascal entityName}}Details
   },
 
   data: () => ({
     {{entityName}}s: [],
-    current{{pascal entityName}}: { name: '', address: '' },
+    current{{pascal entityName}}: {},
     isVisible{{pascal entityName}}Form: false,
     isVisible{{pascal entityName}}Details: false,
-    isUpdating{{pascal entityName}}: false,
+    isUpdating{{pascal entityName}}: false
   }),
 
-  mounted() {
-    this.get{{pascal entityName}}s();
+  mounted () {
+    this.current{{pascal entityName}} = new {{pascal entityName}}()
+    this.get{{pascal entityName}}s()
   },
 
   methods: {
-    async get{{pascal entityName}}s() {
-      this.{{entityName}}s = await {{pascal entityName}}RepositoryProxy.findAll();
+    async get{{pascal entityName}}s () {
+      this.{{entityName}}s = await {{pascal entityName}}RepositoryProxy.findAll()
     },
 
-    async delete{{pascal entityName}}({{entityName}}) {
-      await {{pascal entityName}}RepositoryProxy.delete({{entityName}});
-      await this.get{{pascal entityName}}s();
+    async delete{{pascal entityName}} ({{entityName}}) {
+      await {{pascal entityName}}RepositoryProxy.delete({{entityName}})
+      await this.get{{pascal entityName}}s()
     },
 
-    async add{{pascal entityName}}({{entityName}}) {
-      // alert(`adding {{entityName}} ${JSON.stringify({{entityName}})}`);
-      await {{pascal entityName}}RepositoryProxy.add({{entityName}});
-      await this.get{{pascal entityName}}s();
-      this.hide{{pascal entityName}}Form();
+    async add{{pascal entityName}} ({{entityName}}) {
+      // alert(`adding {{entityName}} ${JSON.stringify({{entityName}})}`)
+      await {{pascal entityName}}RepositoryProxy.add({{entityName}})
+      await this.get{{pascal entityName}}s()
+      this.hide{{pascal entityName}}Form()
     },
 
-    async update{{pascal entityName}}({{entityName}}) {
-      // alert(`adding {{entityName}} ${JSON.stringify({{entityName}})}`);
-      await {{pascal entityName}}RepositoryProxy.update({{entityName}});
-      await this.get{{pascal entityName}}s();
-      this.hide{{pascal entityName}}Form();
+    async update{{pascal entityName}} ({{entityName}}) {
+      // alert(`adding {{entityName}} ${JSON.stringify({{entityName}})}`)
+      await {{pascal entityName}}RepositoryProxy.update({{entityName}})
+      await this.get{{pascal entityName}}s()
+      this.hide{{pascal entityName}}Form()
     },
 
-    show{{pascal entityName}}Details({{entityName}}) {
-      this.current{{pascal entityName}} = {{entityName}};
-      this.isVisible{{pascal entityName}}Details = true;
+    show{{pascal entityName}}Details ({{entityName}}) {
+      this.current{{pascal entityName}} = {{entityName}}
+      this.isVisible{{pascal entityName}}Details = true
     },
 
-    close{{pascal entityName}}Details() {
-      this.isVisible{{pascal entityName}}Details = false;
+    close{{pascal entityName}}Details () {
+      this.isVisible{{pascal entityName}}Details = false
     },
 
-    edit{{pascal entityName}}({{entityName}}) {
-      this.isUpdating{{pascal entityName}} = true;
-      this.current{{pascal entityName}} = {{entityName}};
-      this.isVisible{{pascal entityName}}Form = true;
+    edit{{pascal entityName}} ({{entityName}}) {
+      this.isUpdating{{pascal entityName}} = true
+      this.current{{pascal entityName}} = {{entityName}}
+      this.isVisible{{pascal entityName}}Form = true
     },
 
-    cancelAdd{{pascal entityName}}() {
-      this.hide{{pascal entityName}}Form();
+    cancelAdd{{pascal entityName}} () {
+      this.hide{{pascal entityName}}Form()
     },
 
-    hide{{pascal entityName}}Form() {
-      this.isVisible{{pascal entityName}}Form = false;
+    hide{{pascal entityName}}Form () {
+      this.isVisible{{pascal entityName}}Form = false
     },
 
-    show{{pascal entityName}}Form() {
-      this.isVisible{{pascal entityName}}Form = true;
+    show{{pascal entityName}}Form () {
+      this.isVisible{{pascal entityName}}Form = true
     },
 
-    showAdd{{pascal entityName}}Form() {
-      this.isUpdating{{pascal entityName}} = false;
-      this.current{{pascal entityName}} = { name: '', address: '' };
-      this.isVisible{{pascal entityName}}Form = true;
-    },
-  },
-};
+    showAdd{{pascal entityName}}Form () {
+      this.isUpdating{{pascal entityName}} = false
+      this.current{{pascal entityName}} = new {{pascal entityName}}()
+      this.isVisible{{pascal entityName}}Form = true
+    }
+  }
+}

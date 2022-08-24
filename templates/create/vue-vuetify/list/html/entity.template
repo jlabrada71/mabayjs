@@ -6,13 +6,10 @@
         tile
       >
       <v-card-title>{{pascal entityName}}s</v-card-title>
-        <v-list :nav="nav">
+        <v-list>
 
-          <v-list-item-group v-model="item" color="primary">
+          <v-list-item-group color="primary">
             <v-list-item v-for="({{entityName}}, index) in {{entityName}}s" :key="index">
-              <v-list-item-avatar v-if="avatar">
-                <v-img :src="item.avatar"></v-img>
-              </v-list-item-avatar>
               <v-list-item-content>
                 <v-row>
                   {{propertiesCode}}

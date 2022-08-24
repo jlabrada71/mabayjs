@@ -1,1 +1,1 @@
-    app.use('/api/v1/{{entityName}}s/', {{entityName}}sRouter);
+    app.use('/v1/{{entityName}}s/', {{entityName}}sRouter);

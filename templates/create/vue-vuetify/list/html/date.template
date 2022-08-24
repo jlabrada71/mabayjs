@@ -1,4 +1,4 @@
-<v-col>
-  <v-list-item-title v-html="{{entityDotPropertyName}}"
-    v-on:click="show{{pascal entityName}}({{entityName}})"></v-list-item-title>
-</v-col>
+        <v-col>
+          <v-list-item-title v-html="{{entityDotPropertyName}}"
+            v-on:click="show{{pascal entityName}}({{entityName}})"></v-list-item-title>
+        </v-col>

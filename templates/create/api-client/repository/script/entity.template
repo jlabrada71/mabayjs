@@ -1,61 +1,60 @@
-import axios from 'axios';
+import {{pascal entityName}} from './{{entityName}}';
+import apiRequest from '@/lib/api-request';
+import Logger from '@/lib/logger';
+import { accessToken, toQuery } from '@/lib/url-utils';
 
 export default class {{pascal entityName}}RepositoryProxy {
-  static async findAll() {
+  // TODO: extract this function, otherwise it will be repeated in all repositories.
+
+  static async findAll(params) {
     try {
-      const url = `${process.env.VUE_APP_API_SERVER}/api/v1/{{entityName}}s`;
-      const response = await axios.get(url);
-      return response.data;
+      const queryString = toQuery(params);
+      const url = `${process.env.apiServer}/api/v1/{{entityName}}s${queryString}`;
+      const response = await apiRequest.get(url, accessToken());
+      Logger.debug(response.data, 'FindAll');
+      return {{pascal entityName}}RepositoryProxy.convertToObject(response.data);
     } catch (e) {
-      alert(e);
+      Logger.log(e, 'FindAll');
     }
     return [];
   }
 
+  static convertToObject(data) {
+    const result = [];
+    data.forEach(item => result.push(new {{pascal entityName}}(item)));
+    return result;
+  }
+
   static async delete({{entityName}}) {
-    const entityId = {{entityName}}._id;
-    const url = `${process.env.VUE_APP_API_SERVER}/api/v1/{{entityName}}s/${entityId}`;
+    const entityId = {{entityName}}._id
+    const url = `${process.env.apiServer}/api/v1/{{entityName}}s/${entityId}`
     try {
-      await axios.delete(url, {
-        //    headers: {
-        //      Authorization: authorizationToken
-        //    },
-        //    data: {
-        //      source: source
-        //    }
-      });
+      await apiRequest.delete(url, accessToken());
     } catch (e) {
-      alert(e);
+      Logger.log(e, 'Delete {{entityName}}');
     }
   }
 
   static async add({{entityName}}) {
-    const url = `${process.env.VUE_APP_API_SERVER}/api/v1/{{entityName}}s`;
+    const url = `${process.env.apiServer}/api/v1/{{entityName}}s`;
     try {
-      await axios.post(url, {
-      //    headers: {
-      //      Authorization: authorizationToken
-      //    },
+      await apiRequest.post(url, {
         {{entityName}},
-      });
+      }, accessToken());
     } catch (e) {
-      alert(e);
+      Logger.log(e, 'Add {{entityName}}');
     }
   }
 
   static async update({{entityName}}) {
-    alert(JSON.stringify({{entityName}}));
     const entityId = {{entityName}}._id;
-    const url = `${process.env.VUE_APP_API_SERVER}/api/v1/{{entityName}}s/${entityId}`;
+    const url = `${process.env.apiServer}/api/v1/{{entityName}}s/${entityId}`;
     try {
-      await axios.put(url, {
-      //    headers: {
-      //      Authorization: authorizationToken
-      //    },
+      await apiRequest.put(url, {
         {{entityName}},
-      });
+      }, accessToken());
     } catch (e) {
-      alert(e);
+      Logger.log(e, 'Update {{entityName}}');
     }
   }
 }

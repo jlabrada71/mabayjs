@@ -89,4 +89,35 @@ router.post('/', authorizer, async (req, res, next) => {
   }
 })
 
+function addRating ({{entityName}}, newRating) {
+  {{entityName}}.rating = {{entityName}}.rating || 0
+  {{entityName}}.ratingCount = {{entityName}}.ratingCount || 0
+  debug('{{pascal entityName}} rating: ' + {{entityName}}.rating, 'addRating')
+  debug('{{pascal entityName}} ratingCount: ' + {{entityName}}.ratingCount, 'addRating')
+  let ratingTotal = {{entityName}}.rating * {{entityName}}.ratingCount
+  ratingTotal += newRating
+  {{entityName}}.ratingCount += 1
+  {{entityName}}.rating = ratingTotal / {{entityName}}.ratingCount
+}
+
+router.post('/:id/rating', async (req, res, next) => {
+  debug('adding rating', '{{entityName}}-routes')
+  debug(req.body.rating)
+  const {{entityName}}Repository = new {{pascal entityName}}Repository()
+  try {
+    const record = { _id: ObjectId(req.params.id) }
+    const {{entityName}}s = await {{entityName}}Repository.select(record)
+    const {{entityName}} = {{entityName}}s[0]
+    const newRatingValue = Number(req.body.rating)
+    debug('{{pascal entityName}} rating')
+    addRating({{entityName}}, newRatingValue)
+    debug({{entityName}}.rating)
+    const result = await {{entityName}}Repository.update(record, { $set: {{entityName}} })
+    returnResult(result, res)
+  } catch (e) {
+    log(e.stack, '{{entityName}}-routes')
+    returnResult('Error', res)
+  }
+})
+
 module.exports = router

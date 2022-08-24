@@ -5,10 +5,9 @@
          outlined
          tile
        >
-         <v-card-title>{{pascal entityName}} Details</v-card-title>
+         <v-card-title><slot name="title">{{pascal entityName}} Details</slot></v-card-title>
          <v-list-item three-line>
            <v-list-item-content>
-             <div class="overline mb-4">OVERLINE</div>
              {{propertiesCode}}
            </v-list-item-content>
 
@@ -19,7 +18,7 @@
            ></v-list-item-avatar>
          </v-list-item>
          <v-card-actions>
-           <v-btn class="success" @click="close">Close</v-btn>
+            <slot name="action"><v-btn class="success" @click="close">Close</v-btn></slot>
          </v-card-actions>
        </v-card>
      </v-container>

@@ -24,7 +24,7 @@ module.exports = class {{pascal entityName}}Repository {
       const dbo = client.db(this.database)
       const col = dbo.collection(this.collection)
       result = await col.insertOne(record)
-      debug('Inserted', 'note-repository')
+      debug('Inserted', '{{entityName}}-repository')
     } catch (e) {
       log(JSON.stringify(e.stack, null, 2), '{{entityName}}-repository')
     } finally {
@@ -34,7 +34,7 @@ module.exports = class {{pascal entityName}}Repository {
   }
 
   async select (record) {
-    debug('Selecting ' + record._id, 'note-repository')
+    debug('Selecting ' + record._id, '{{entityName}}-repository')
     let client
     let result = []
     try {

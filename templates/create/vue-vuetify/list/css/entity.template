@@ -1,12 +1,7 @@
 c-{{kebab entityName}}-form {
-
 }
-
 c-{{kebab entityName}}-form__title {
-
 }
-
 c-{{kebab entityName}}-form-actions {
-
 }
 {{propertiesCode}}
