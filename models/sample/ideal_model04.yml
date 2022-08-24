@@ -1,0 +1,16 @@
+definitions:
+  aggregates:
+    customer : customer
+  entities:
+    customer:
+      id: name
+      name: name
+      address: name
+  value_objects:
+    date:
+      name: name
+  primitives:
+    name:
+      type: string
+    age:
+      type: long

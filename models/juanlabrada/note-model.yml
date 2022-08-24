@@ -1,0 +1,31 @@
+---
+definitions:
+  aggregates:
+    - note
+  entities:
+    note:
+      id: id
+      title: text
+      description: longtext
+      text: longtext
+      publishDate: date
+      rating: rating
+      ratingCount: count
+      image: image
+  primitives:
+    id:
+      type: long
+    name: 
+      type: string
+    text:
+      type: string
+    longtext:
+      type: string
+    image: 
+      type: string
+    date: 
+      type: date
+    rating: 
+      type: long
+    count:
+      type: long
