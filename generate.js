@@ -1,11 +1,11 @@
-const AppGenerator  = require('./lib/app-generator');
-const Handlebars = require('handlebars');
-const _ = require('lodash');
-const fs = require('fs');
+import AppGenerator  from './lib/app-generator.js'
+import Handlebars from 'handlebars'
+import _  from 'lodash'
+import fs from 'fs'
 
 if( process.argv.length < 6 ) {
   console.log('Usage: generate modelFile templatesPath manifestoFile outputPath');
-  return;
+  process.exit(1);
 }
 
 let file = process.argv[2];
