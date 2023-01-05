@@ -4,7 +4,7 @@ const TemplateGenerator = require('./lib/templates/template-generator');
 
 if( process.argv.length < 9 ) {
   console.log('Usage: generate_template sampleFile entity templatesPath technology usecase context outputPath');
-  return;
+  process.exit(1);
 }
 
 let file = process.argv[2];

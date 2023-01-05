@@ -1,1 +1,1 @@
-const {{entityName}}sRouter = require('../{{entityName}}/routes/{{entityName}}');
+const {{entityName}}sRouter = require('../{{entityName}}/routes/{{entityName}}')

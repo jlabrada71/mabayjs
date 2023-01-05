@@ -7,10 +7,12 @@ definitions:
       id: id
       projectId: id
       description: longtext
+      done: boolean
     subtask:
       id: id
       taskId: id
       description: longtext
+      done: boolean
 
   primitives:
     id:
@@ -31,3 +33,5 @@ definitions:
       type: long
     count:
       type: long
+    boolean:
+      type: boolean

@@ -1,60 +1,61 @@
-import {{pascal entityName}} from './{{entityName}}';
-import apiRequest from '@/lib/api-request';
-import Logger from '@/lib/logger';
-import { accessToken, toQuery } from '@/lib/url-utils';
+// import {{pascal entityName}} from './{{entityName}}'
+import apiRequest from '@/lib/api-request'
+import Logger from '@/lib/logger'
+import { accessToken, toQuery } from '@/lib/url-utils'
 
 export default class {{pascal entityName}}RepositoryProxy {
   // TODO: extract this function, otherwise it will be repeated in all repositories.
 
-  static async findAll(params) {
+  static async findAll (params) {
     try {
-      const queryString = toQuery(params);
-      const url = `${process.env.apiServer}/api/v1/{{entityName}}s${queryString}`;
-      const response = await apiRequest.get(url, accessToken());
-      Logger.debug(response.data, 'FindAll');
-      return {{pascal entityName}}RepositoryProxy.convertToObject(response.data);
+      const queryString = toQuery(params)
+      const url = `${process.env.apiServer}/api/v1/{{entityName}}s${queryString}`
+      const response = await apiRequest.get(url, accessToken())
+      Logger.debug(response.data, 'FindAll')
+      return response.data
+      // return {{pascal entityName}}RepositoryProxy.convertToObject(response.data)
     } catch (e) {
-      Logger.log(e, 'FindAll');
+      Logger.log(e, 'FindAll')
     }
-    return [];
+    return []
   }
+  /*
+  static convertToObject (data) {
+    const result = []
+    data.forEach(item => result.push(new {{pascal entityName}}(item)))
+    return result
+  } */
 
-  static convertToObject(data) {
-    const result = [];
-    data.forEach(item => result.push(new {{pascal entityName}}(item)));
-    return result;
-  }
-
-  static async delete({{entityName}}) {
+  static async delete ({{entityName}}) {
     const entityId = {{entityName}}._id
     const url = `${process.env.apiServer}/api/v1/{{entityName}}s/${entityId}`
     try {
-      await apiRequest.delete(url, accessToken());
+      await apiRequest.delete(url, accessToken())
     } catch (e) {
-      Logger.log(e, 'Delete {{entityName}}');
+      Logger.log(e, 'Delete {{entityName}}')
     }
   }
 
-  static async add({{entityName}}) {
-    const url = `${process.env.apiServer}/api/v1/{{entityName}}s`;
+  static async add ({{entityName}}) {
+    const url = `${process.env.apiServer}/api/v1/{{entityName}}s`
     try {
       await apiRequest.post(url, {
-        {{entityName}},
-      }, accessToken());
+        {{entityName}}
+      }, accessToken())
     } catch (e) {
-      Logger.log(e, 'Add {{entityName}}');
+      Logger.log(e, 'Add {{entityName}}')
     }
   }
 
-  static async update({{entityName}}) {
-    const entityId = {{entityName}}._id;
-    const url = `${process.env.apiServer}/api/v1/{{entityName}}s/${entityId}`;
+  static async update ({{entityName}}) {
+    const entityId = {{entityName}}._id
+    const url = `${process.env.apiServer}/api/v1/{{entityName}}s/${entityId}`
     try {
       await apiRequest.put(url, {
-        {{entityName}},
-      }, accessToken());
+        {{entityName}}
+      }, accessToken())
     } catch (e) {
-      Logger.log(e, 'Update {{entityName}}');
+      Logger.log(e, 'Update {{entityName}}')
     }
   }
 }
