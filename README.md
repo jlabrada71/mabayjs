@@ -66,7 +66,6 @@ articles.yml
         text: text 
         author: name 
         email: text
-    entities:
         
     primitives:
         id:
