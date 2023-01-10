@@ -128,6 +128,8 @@ Finally, the primitives section describe which template should be used for each 
 
 
 manifesto.json
+```
+{
     "ext":".vue",
     "fileNameTemplate" : "{{pascal entityName}}{{pascal usecase}}",
     "technologies":[
@@ -160,7 +162,7 @@ manifesto.json
         }
     ]
     }
-
+```
 Create templates from sample code
 =================================
 
