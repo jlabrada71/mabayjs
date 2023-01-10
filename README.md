@@ -1,10 +1,14 @@
+Introduction
+==================
+
+95% of the time we end up writing boilerplace code, where the main differences are the type of data, the business model, the entity names or the technologies involved. I created this project to shortcut on this. Just generate all that boiler plate code based on a model. It has worked for me so far. It might also work for you.
+
 Generate full code
 ==================
-    95% of the time we end up writing boilerplace code, where the main differences are the type of data, the business model, the entity names or the technologies involved. I created this project to shortcut on this. Just generate all that boiler plate code based on a model. It has worked for me so far. It might also work for you.
-
+  
     generate.js
 
-    The generate.js script allows to generate a set of files based on a model, a set of templates and a manifesto file 
+The generate.js script allows to generate a set of files based on a model, a set of templates and a manifesto file 
 
 **Usage:** generate modelFile templatesPath manifestoFile outputPath
 
@@ -82,6 +86,7 @@ Currently supported data types:
 Example structure:
 --------------------
 
+```
 articles.yml
 
     ---
@@ -116,7 +121,7 @@ articles.yml
         type: string
         date: 
         type: date
-
+```
 
 Manifesto file structure
 ===============================
