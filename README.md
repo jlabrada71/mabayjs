@@ -5,6 +5,9 @@ Introduction
 
 Why mabayjs? Well, Mabay is a forgotten town in the outskirts of Bayamo in Cuba, full of gentle people and where life moves at a slow pace quite different from the stress of the city. In that town, my mother was born and grown.
 
+Before getting deep into the details you might want to have a quick start about how the generation process works.
+[Quick Start](/QUICK-START.md)
+
 Generate full code
 ==================
   
