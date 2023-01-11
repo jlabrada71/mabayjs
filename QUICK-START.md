@@ -1,19 +1,18 @@
-Introduction
--------------
-Imagine we are implementing a TODO List where each item is a task and you need to create a RESTful API in NodeJS using Express to store those tasks in a MongoDB database. We already have a set of templates ready for this task.
-
-In order to generate the code, we need to follow three steps:
-- Download and Install MabayJS
-- Create a Model for the tasks.
-- Run the generate-api.sh script which generates the code.
-
-Let see in details these steps
+Before We Start
+===============
 
 Requirements
 ---------------------
-Node version 16+
+MabayJS requires Node version 16+ and npm installed in order to run. 
+To verify if node is installed run the following command in a terminal:
+```
+node -v
+```
+Which should show the node version if it is installed. In case you don't have node installed or the node version is below 16, you will need to install it.
+Visit https://nodejs.org/en/ download a current version, run it and follow the instructions.
+You can also install nvm (node version manager) in the case you might need specific node versions for other tasks.
 
-Download and Install
+Download and Install MabayJS
 ---------------------
 
 For running the MabayJS Project you just need to download and install 
@@ -28,6 +27,18 @@ npm run install
 Now, the project is ready for using.
 The script expects to be run in bash or zsh shells. In this case of errors related to command not found or error, verify you have the shell installed or install and config any of theses supported shells.
 Also, you might receive some permissions message error. This could happen to any .sh file. In this case just do chmod +x < filename.sh > to fix the issue.
+
+
+Overview
+============
+Imagine we are implementing a TODO List where each item is a task and you need to create a RESTful API in NodeJS using Express to store those tasks in a MongoDB database. We already have a set of templates ready for this task.
+
+In order to generate the code, we need to follow three steps:
+- Download and Install MabayJS
+- Create a Model for the tasks.
+- Run the generate-api.sh script which generates the code.
+
+Let see in details these steps
 
 
 Create a model file
