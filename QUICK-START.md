@@ -27,7 +27,7 @@ npm run install
 
 Now, the project is ready for using.
 The script expects to be run in bash or zsh shells. In this case of errors related to command not found or error, verify you have the shell installed or install and config any of theses supported shells.
-Also, you might receive some permissions message error. This could happen to any .sh file. In this case just do chmod +x <filename> to fix the issue.
+Also, you might receive some permissions message error. This could happen to any .sh file. In this case just do chmod +x < filename > to fix the issue.
 
 
 Create a model file
