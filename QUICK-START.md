@@ -8,6 +8,23 @@ In order to generate the code, we need to follow two steps:
 
 Let see in details these steps
 
+Download and Install
+---------------------
+
+For running the MabayJS Project you just need to download and install 
+
+Open a console and clone the github project
+```
+git clone https://github.com/jlabrada71/mabayjs.git
+cd mabayjs
+npm run install
+```
+
+Now, the project is ready for using.
+The script expects to be run in bash or zsh shells. In this case of errors related to command not found or error, verify you have the shell installed or install and config any of theses supported shells.
+Also, you might receive some permissions message error. This could happen to any .sh file. In this case just do chmod +x <filename> to fix the issue.
+
+
 Create a model file
 ------------------------
 The *models* directory is the recommended place for storing models.
