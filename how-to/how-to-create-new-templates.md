@@ -272,7 +272,7 @@ The first parameter that it receives is the model yml file(*models/quick-start/n
 
 It is recommended to create a script to short cut calling the generation file since this will be a repetitive task and you won't want to have to remember and type all the different parameters every time.
 
-Review the *output* directory *output/src/components/notes* and you'll find the NoteList.js. Copy the *notes* directory to the *src/components* directory in the *react-todo* project. Import and tie the component in the App.js file. Add some data and see how it works.
+Review the *output* directory *output/src/components/notes* and you'll find the NoteList.js. Copy the *notes* directory to the *src/components* directory in the *react-todo* project. Import and tie the component in the App.js file. Add some data to the notes.json file. Create an empty NotesList.css. Run *npm run start* and see how it works.
 BTW, these changes to the App.js file can also be done automatically by using a different generation strategy but that is matter for another *how-to*
 
 If you have any issue, question or comment feel free to drop me a message or create an issue in Github.
