@@ -1,6 +1,6 @@
 Introduction
 -------------
-Imagine we are implementing a TODO List where each item is a task and want to create a RESTful API in NodeJS using Express to store those tasks in a MongoDB database. We have already a set of templates for this task.
+Imagine we are implementing a TODO List where each item is a task and you need to create a RESTful API in NodeJS using Express to store those tasks in a MongoDB database. We already have a set of templates for this task.
 
 In order to generate the code, we need to follow two steps:
 - Create a Model for the tasks.
