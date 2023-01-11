@@ -1,19 +1,24 @@
 Introduction
 -------------
-Imagine we are implementing a TODO List where each item is a task and you need to create a RESTful API in NodeJS using Express to store those tasks in a MongoDB database. We already have a set of templates for this task.
+Imagine we are implementing a TODO List where each item is a task and you need to create a RESTful API in NodeJS using Express to store those tasks in a MongoDB database. We already have a set of templates ready for this task.
 
-In order to generate the code, we need to follow two steps:
+In order to generate the code, we need to follow three steps:
+- Download and Install MabayJS
 - Create a Model for the tasks.
 - Run the generate-api.sh script which generates the code.
 
 Let see in details these steps
+
+Requirements
+---------------------
+Node version 16+
 
 Download and Install
 ---------------------
 
 For running the MabayJS Project you just need to download and install 
 
-Open a console and clone the github project
+Open a console or a terminal window and clone the github project
 ```
 git clone https://github.com/jlabrada71/mabayjs.git
 cd mabayjs
