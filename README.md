@@ -1,9 +1,9 @@
 Introduction
 ==================
 
-95% of the time we end up writing boilerplace code, where the main differences are the type of data, the business model, the entity names or the technologies involved. I created this project to shortcut on this. Just generate all that boiler plate code based on a model. It has worked for me so far. It might also work for you.
+95% of the time we end up writing boilerplate code, where the main differences are the type of data, the business model, the entity names or the technologies involved. I created this project to shortcut on this. Just generate all that boilerplate code based on a model. It has worked for me so far. It might also work for you.
 
-Why mabayjs? Well, Mabay is a forgotten town in the outskirts of Bayamo in Cuba, full of gentle people and where life moves at a slow pace quite different from the stress of the city. In that town, my mother was born and grown.
+Why Mabayjs? Mabay is a forgotten town in the outskirts of Bayamo in Cuba, full of gentle people and where life moves at a slow pace quite different from the stress of the city. In that town, my mother was born and grown.
 
 Before getting deep into the details you might want to have a quick start about how the generation process works.
 [Quick Start](/QUICK-START.md)
