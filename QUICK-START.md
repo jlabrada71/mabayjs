@@ -96,3 +96,5 @@ Finally, in the *task* directory you will find the code that implements the REST
 There are two additional directories *lib* and *auth* that are helper directories for the Express JS implementation. If you are implementing the services with a different technology you might require changes.
 
 
+Comments and Issues [here](https://github.com/jlabrada71/mabayjs/issues/new)
+===========================================================================

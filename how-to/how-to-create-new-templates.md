@@ -277,4 +277,7 @@ BTW, these changes to the App.js file can also be done automatically by using a 
 
 If you have any issue, question or comment feel free to drop me a message or create an issue in Github.
 
+Comments and Issues [here](https://github.com/jlabrada71/mabayjs/issues/new)
+===========================================================================
+
 

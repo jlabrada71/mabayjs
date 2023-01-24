@@ -29,6 +29,7 @@ Now, the project is ready for using.
 The script expects to be run in bash or zsh shells. In this case of errors related to command not found or error, verify you have the shell installed or install and config any of theses supported shells.
 Also, you might receive some permissions message error. This could happen to any .sh file. In this case just do chmod +x <filename> to fix the issue.
 
+
 Generate full code
 ==================
   
@@ -263,3 +264,7 @@ fileMark: What needs to be found out in the file and replaced by the template in
 }
 
 ```
+
+
+Comments and Issues [here](https://github.com/jlabrada71/mabayjs/issues/new)
+===========================================================================
