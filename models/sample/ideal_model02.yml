@@ -1,0 +1,15 @@
+definitions:
+  aggregates:
+    policy : policy
+  entities:
+    policy:
+      id: name
+      age: age
+  value_objects:
+    date:
+      name: name
+  primitives:
+    name:
+      type: string
+    age:
+      type: long

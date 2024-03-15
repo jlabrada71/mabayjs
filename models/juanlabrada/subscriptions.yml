@@ -1,0 +1,31 @@
+---
+definitions:
+  aggregates:
+    - subscription
+  entities:
+    subscription:
+      id: id
+      subscriptionOptionId: id
+      name: name
+      email: email
+      startDate: date
+      endDate: date
+  primitives:
+    id:
+      type: long
+    name: 
+      type: string
+    email:
+      type: string
+    text:
+      type: string
+    longtext:
+      type: string
+    image: 
+      type: string
+    date: 
+      type: date
+    rating: 
+      type: long
+    count:
+      type: long

@@ -1,0 +1,27 @@
+---
+definitions:
+  aggregates:
+    - message
+  entities:
+    message:
+      id: id     
+      name: longtext
+      date: date
+      insertDate: date
+      details: longtext
+      email: longtext
+      result: longtext
+
+  primitives:
+    id:
+      type: long    
+    longtext:
+      type: string    
+    boolean:
+      type: boolean
+    date: 
+      type: date
+    integer:
+      type: integer
+    double:
+      type: double 

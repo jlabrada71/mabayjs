@@ -1,0 +1,17 @@
+import './{{pascal entityName}}List.css';
+
+function {{pascal entityName}}ListItem({{entityName}}) {
+  return <div className='class-list-row'>
+    {{propertiesCode}}
+  </div>
+}
+
+function {{pascal entityName}}List({ {{entityName}}List }) {
+  console.log({{entityName}}List)
+  return <div>
+    <h1>{{pascal entityName}} List</h1>
+    { {{entityName}}List.map({{pascal entityName}}ListItem) }
+  </div>
+}
+
+export default {{pascal entityName}}List

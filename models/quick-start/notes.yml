@@ -1,0 +1,19 @@
+---
+definitions:
+  aggregates:
+    - note
+  entities:
+    note:
+      id: id     
+      title: longtext
+      author: longtext
+      description: longtext
+      finished: boolean   
+
+  primitives:
+    id:
+      type: long    
+    longtext:
+      type: string    
+    boolean:
+      type: boolean

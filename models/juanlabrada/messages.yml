@@ -1,0 +1,37 @@
+---
+definitions:
+  aggregates:
+    - task
+  entities:
+    task:
+      id: id
+      projectId: id
+      description: longtext
+      done: boolean
+    subtask:
+      id: id
+      taskId: id
+      description: longtext
+      done: boolean
+
+  primitives:
+    id:
+      type: long
+    name: 
+      type: string
+    email:
+      type: string
+    text:
+      type: string
+    longtext:
+      type: string
+    image: 
+      type: string
+    date: 
+      type: date
+    rating: 
+      type: long
+    count:
+      type: long
+    boolean:
+      type: boolean

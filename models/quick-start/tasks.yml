@@ -1,0 +1,17 @@
+---
+definitions:
+  aggregates:
+    - task
+  entities:
+    task:
+      id: id      
+      description: longtext
+      done: boolean   
+
+  primitives:
+    id:
+      type: long    
+    longtext:
+      type: string    
+    boolean:
+      type: boolean

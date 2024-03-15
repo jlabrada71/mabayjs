@@ -1,0 +1,9 @@
+.task-list {
+
+}
+
+.task-list-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
