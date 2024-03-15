@@ -2,7 +2,7 @@ Before We Start
 ===============
 
 QUICK-LINK:
-Generate nestjs-api
+for generating nestjs-api use the 
 node generate.js models/quick-start/messages.yml templates/nestjs-api/create templates/nestjs-api/create/manifesto.json ./output
 
 node generate.js models/quick-start/messages.yml templates/nestjs-api/create templates/nestjs-api/create/manifesto-schemas.json ./output
