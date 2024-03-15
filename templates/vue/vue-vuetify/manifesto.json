@@ -1,0 +1,68 @@
+{
+   "ext":".vue",
+   "fileNameTemplate" : "{{pascal entityName}}{{pascal usecase}}",
+   "technologies":[
+      "vue-vuetify"
+   ],
+   "useCases":[
+      {"name":"form", "folder":"src/{{entityName}}/components" },
+      {"name":"details", "folder":"src/{{entityName}}/components" },
+      {"name":"list", "folder":"src/{{entityName}}/components" },
+      {"name":"view", "folder":"src/{{entityName}}/views" }
+   ],
+   "entity":"entity.template",
+   "contextComposite":"composite.template",
+   "contexts":[
+      "html",
+      "script",
+      "css"
+   ],
+   "generationStrategy" :"singleAggregate",
+   "primitives":[
+      {
+         "key":"entity",
+         "type":"entity",
+         "definition":"entity.template"
+      },
+      {
+         "key":"id",
+         "type":"property",
+         "definition":"id.template"
+      },
+      {
+         "key":"name",
+         "type":"property",
+         "definition":"name.template"
+      },
+      {
+         "key":"text",
+         "type":"property",
+         "definition":"text.template"
+      },
+      {
+         "key":"date",
+         "type":"property",
+         "definition":"date.template"
+      },
+      {
+         "key":"rating",
+         "type":"property",
+         "definition":"rating.template"
+      },
+      {
+         "key":"count",
+         "type":"property",
+         "definition":"count.template"
+      },
+      {
+         "key":"longtext",
+         "type":"property",
+         "definition":"longtext.template"
+      },
+      {
+         "key":"image",
+         "type":"property",
+         "definition":"image.template"
+      }
+   ]
+}

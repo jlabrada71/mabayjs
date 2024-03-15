@@ -1,0 +1,23 @@
+{
+   "ext":".vue",
+   "fileNameTemplate" : "AppRoutes",
+   "technologies":[
+      "vue-vuetify"
+   ],
+   "useCases":[
+      {"name":"app-routes", "folder":"src/components" }
+   ],
+   "entity":"entity.template",
+   "contextComposite":"app-routes/composite.template",
+   "contexts":[
+      "html"
+   ],
+   "generationStrategy" :"combinedAggregate",
+   "primitives":[
+      {
+         "key":"entity",
+         "type":"entity",
+         "definition":"entity.template"
+      }
+   ]
+}

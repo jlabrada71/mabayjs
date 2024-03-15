@@ -1,0 +1,44 @@
+{
+    "ext":".ts",
+    "fileNameTemplate" : "{{usecase}}-{{entityName}}.dto",
+    "technologies":[
+        "api"
+    ],
+    "useCases":[
+        { "name": "create", "folder": "src/{{entityName}}s/dto" },
+        { "name": "update", "folder": "src/{{entityName}}s/dto" }
+    ],
+    "entity":"entity.template",
+    "contextComposite":"composite.template",
+    "contexts":[
+        "script"
+    ],
+    "generationStrategy" :"singleAggregate",
+    "primitives":[
+    {
+        "key":"entity",
+        "type":"entity",
+        "definition":"entity.template"
+    },
+    {
+        "key":"id",
+        "type":"property",
+        "definition":"id.template"
+    },
+    {
+        "key":"longtext",
+        "type":"property",
+        "definition":"longtext.template"
+    },
+    {
+        "key":"boolean",
+        "type":"property",
+        "definition":"boolean.template"
+    },
+    {
+        "key":"date",
+        "type":"property",
+        "definition":"date.template"
+    }
+    ]
+ }

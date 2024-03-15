@@ -1,0 +1,19 @@
+{
+   "ext":".js",
+   "fileNameTemplate" : "AggregateRoutes",
+   "technologies":[
+      "vue-routes"
+   ],
+   "useCases":[
+       {"name":"routes", "folder":"src/router" }
+   ],
+   "entity":"entity.template",
+   "contextComposite":"composite.template",
+   "contexts":[ "script" ],
+   "generationStrategy" :"combinedAggregate",
+   "primitives":[{
+      "key":"entity",
+      "type":"entity",
+      "definition":"entity.template"
+   }]
+}

@@ -1,0 +1,23 @@
+{
+   "ext":".js",
+   "fileNameTemplate" : "{{entityName}}-{{usecase}}-proxy",
+   "technologies":[
+      "api-client"
+   ],
+   "useCases":[
+       {"name":"repository", "folder":"src/{{entityName}}/lib" }
+   ],
+   "entity":"entity.template",
+   "contextComposite":"composite.template",
+   "contexts":[
+      "script"
+   ],
+   "generationStrategy" :"singleAggregate",
+   "primitives":[
+      {
+         "key":"entity",
+         "type":"entity",
+         "definition":"entity.template"
+      }
+   ]
+}

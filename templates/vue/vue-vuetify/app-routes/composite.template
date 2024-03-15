@@ -1,0 +1,18 @@
+<template>
+  <div id="app-routes">
+    <router-link to="/">Home</router-link> |
+    {{html}}
+    <router-link to="/about">About</router-link>
+  </div>
+</template>
+
+<style>
+
+</style>
+
+<script>
+export default {
+  name: 'AppRoutes',
+
+};
+</script>

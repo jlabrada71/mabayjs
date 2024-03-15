@@ -1,0 +1,47 @@
+{
+    "ext":".ts",
+    "fileNameTemplate" : "{{entityName}}.{{usecase}}",
+    "technologies":[
+        "api"
+    ],
+    "useCases":[
+        { "name": "controller", "folder": "src/{{entityName}}s" },
+        { "name": "controller.spec", "folder": "src/{{entityName}}s" },
+        { "name": "module", "folder": "src/{{entityName}}s" },
+        { "name": "service", "folder": "src/{{entityName}}s" },
+        { "name": "service.spec", "folder": "src/{{entityName}}s" }
+    ],
+    "entity":"entity.template",
+    "contextComposite":"composite.template",
+    "contexts":[
+        "script"
+    ],
+    "generationStrategy" :"singleAggregate",
+    "primitives":[
+    {
+        "key":"entity",
+        "type":"entity",
+        "definition":"entity.template"
+    },
+    {
+        "key":"id",
+        "type":"property",
+        "definition":"id.template"
+    },
+    {
+        "key":"longtext",
+        "type":"property",
+        "definition":"longtext.template"
+    },
+    {
+        "key":"boolean",
+        "type":"property",
+        "definition":"boolean.template"
+    },
+    {
+        "key":"date",
+        "type":"property",
+        "definition":"date.template"
+    }
+    ]
+ }

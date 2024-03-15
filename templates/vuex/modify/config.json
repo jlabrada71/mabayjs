@@ -1,0 +1,28 @@
+{
+  "templates":[
+    {
+      "name": "state",
+      "variableTemplate": " state: {\n    ${variableName}: null,\n",
+      "variableTemplateMark": "${variableName}",
+      "fileMark": " state: {\n"
+    },
+    {
+      "name": "mutations",
+      "variableTemplate": " mutations: {\n    set_${variableName}: (state, payload) => {\n      state.${variableName} = payload;\n    },\n",
+      "variableTemplateMark": "${variableName}",
+      "fileMark": " mutations: {\n"
+    },
+    {
+      "name": "actions",
+      "variableTemplate": " actions: {\n    set_${variableName}: (context, payload) => {\n      context.commit('set_${variableName}', payload);\n    },\n",
+      "variableTemplateMark": "${variableName}",
+      "fileMark": " actions: {\n"
+    },
+    {
+      "name": "getters",
+      "variableTemplate": " getters: {\n    ${variableName}: (state) => state.${variableName},\n",
+      "variableTemplateMark": "${variableName}",
+      "fileMark": " getters: {\n"
+    }
+  ]
+}

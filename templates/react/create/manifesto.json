@@ -1,0 +1,38 @@
+{
+   "ext":".js",
+   "fileNameTemplate" : "{{pascal entityName}}{{pascal usecase}}",
+   "technologies":[
+      "react"
+   ],
+   "useCases":[
+      {"name":"list", "folder":"src/components/{{entityName}}s" }
+   ],
+   "entity":"entity.template",
+   "contextComposite":"composite.template",
+   "contexts":[
+      "script"   
+    ],
+   "generationStrategy" :"singleAggregate",
+   "primitives":[
+      {
+         "key":"entity",
+         "type":"entity",
+         "definition":"entity.template"
+      },
+      {
+         "key":"id",
+         "type":"property",
+         "definition":"id.template"
+      },      
+      {
+         "key":"boolean",
+         "type":"property",
+         "definition":"boolean.template"
+      },
+      {
+         "key":"longtext",
+         "type":"property",
+         "definition":"longtext.template"
+      }
+   ]
+}

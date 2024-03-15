@@ -1,0 +1,54 @@
+import { Injectable } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
+import { Model } from 'mongoose';
+import { Create{{pascal entityName}}Dto } from './dto/create-{{entityName}}.dto';
+import { Update{{pascal entityName}}Dto } from './dto/update-{{entityName}}.dto';
+import { {{pascal entityName}} } from './schemas/{{entityName}}.schema';
+
+@Injectable()
+export class {{pascal entityName}}sService {
+  constructor(@InjectModel('{{pascal entityName}}') private readonly {{entityName}}Model: Model<{{pascal entityName}}>) {}
+
+  async create(create{{pascal entityName}}Dto: Create{{pascal entityName}}Dto): Promise<{{pascal entityName}}> {
+    const created{{pascal entityName}} = await this.{{entityName}}Model.create(create{{pascal entityName}}Dto);
+    return created{{pascal entityName}};
+  }
+
+  async findAll(): Promise<{{pascal entityName}}[]> {
+    return this.{{entityName}}Model.find().exec();
+  }
+
+  async findOne(id: string): Promise<{{pascal entityName}}> {
+    return this.{{entityName}}Model.findOne({ _id: id }).exec();
+  }
+
+  async update(id: string, update{{pascal entityName}}Dto: Update{{pascal entityName}}Dto): Promise<{{pascal entityName}}> {
+    const updateData = {
+      name: update{{pascal entityName}}Dto.name,
+      date: update{{pascal entityName}}Dto.date,
+      insertDate: update{{pascal entityName}}Dto.insertDate,
+      details: update{{pascal entityName}}Dto.details,
+      email: update{{pascal entityName}}Dto.email,
+      result: update{{pascal entityName}}Dto.result
+    };
+    const updated{{pascal entityName}} = await this.{{entityName}}Model.findByIdAndUpdate({_id: id,}, updateData).exec();
+    return updated{{pascal entityName}};
+  }
+
+  async delete(id: string) {
+    const deleted{{pascal entityName}} = await this.{{entityName}}Model.findByIdAndDelete({ _id: id })
+      .exec();
+    return deleted{{pascal entityName}};
+  }
+}
+
+
+
+// curl localhost:3000/{{entityName}}s
+// curl -d '{"name":"juan labrada", "date":"2023-09-05T01:29:16.850Z", "result": {}, "insertDate": "2023-09-05T01:29:16.850Z", "email": "jlabrada@yahoo.com", "details":"this is the email details"}' -H "Content-Type: application/json" -X POST http://localhost:3000/{{entityName}}s
+// curl -d '{"name":"bartolomeo", "age":"10", "breed": "egipcio"}' -H "Content-Type: application/json" -X POST http://localhost:3000/cats
+
+// curl localhost:3000/cats/65a192e46521bb371531d684  (misifuid>
+// curl -d '{ "age":"13"}' -H "Content-Type: application/json" -X PATCH http://localhost:3000/cats/65a1a5a09bc572392c7aed83  (bartolomeo id)
+
+// curl -X DELETE http://localhost:3000/cats/65a1a5a09bc572392c7aed83

@@ -1,0 +1,14 @@
+export default {
+  name: '{{pascal entityName}}Details',
+  props: {
+    {{entityName}}: Object,
+  },
+  data: () => ({
+    valid: false,
+  }),
+  methods: {
+    close() {
+      this.$emit('close-{{entityName}}-details', this.{{entityName}});
+    },
+  },
+};

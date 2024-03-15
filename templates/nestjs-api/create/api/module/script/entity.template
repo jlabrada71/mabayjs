@@ -1,0 +1,12 @@
+import { Module } from '@nestjs/common';
+import { MongooseModule } from '@nestjs/mongoose';
+import { {{pascal entityName}}sService } from './{{entityName}}s.service';
+import { {{pascal entityName}}sController } from './{{entityName}}s.controller';
+import { {{pascal entityName}}Schema } from './schemas/{{entityName}}.schema';
+
+@Module({
+  imports: [MongooseModule.forFeature([{ name: '{{pascal entityName}}', schema: {{pascal entityName}}Schema }])],   // Cat.name
+  controllers: [{{pascal entityName}}sController],
+  providers: [{{pascal entityName}}sService],
+})
+export class {{pascal entityName}}sModule {}

@@ -1,0 +1,28 @@
+export default {
+  name: '{{pascal entityName}}Form',
+  props: {
+    {{entityName}}: Object,
+    isUpdating: Boolean,
+  },
+  data: () => ({
+    valid: false,
+    actionText: 'Add {{pascal entityName}}',
+  }),
+  watch: {
+    isUpdating(updating) {
+      this.actionText = updating ? 'Update {{pascal entityName}}' : 'Add {{pascal entityName}}';
+    },
+  },
+  methods: {
+    submit() {
+      if (this.isUpdating) {
+        this.$emit('update-{{kebab entityName}}', this.{{entityName}});
+      } else {
+        this.$emit('add-{{kebab entityName}}', this.{{entityName}});
+      }
+    },
+    cancel() {
+      this.$emit('cancel-add-{{kebab entityName}}');
+    },
+  },
+};

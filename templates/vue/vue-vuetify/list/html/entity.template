@@ -1,0 +1,27 @@
+  <div id="{{entityName}}-list">
+    <v-container class="grey lighten-5">
+      <v-card
+        class="mx-auto"
+        max-width="400"
+        tile
+      >
+      <v-card-title>{{pascal entityName}}s</v-card-title>
+        <v-list>
+
+          <v-list-item-group color="primary">
+            <v-list-item v-for="({{entityName}}, index) in {{entityName}}s" :key="index">
+              <v-list-item-content>
+                <v-row>
+                  {{propertiesCode}}
+                  <v-col>
+                    <v-icon v-on:click="edit{{pascal entityName}}({{entityName}})">edit</v-icon>
+                    <v-icon v-on:click="delete{{pascal entityName}}({{entityName}})">delete</v-icon>
+                  </v-col>
+                </v-row>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-item-group>
+        </v-list>
+      </v-card>
+   </v-container>
+  </div>

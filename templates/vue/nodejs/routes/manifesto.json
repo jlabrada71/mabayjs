@@ -1,0 +1,26 @@
+{
+    "ext": ".js",
+    "fileNameTemplate": "/{{entityName}}",
+    "technologies": [
+        "nodejs"
+    ],
+    "useCases": [
+        {
+            "name": "routes",
+            "folder": "{{entityName}}/routes/"
+        }
+    ],
+    "entity": "entity.template",
+    "contextComposite": "routes/composite.template",
+    "contexts": [
+        "javascript"
+    ],
+    "generationStrategy": "singleAggregate",
+    "primitives": [
+        {
+            "key": "entity",
+            "type": "entity",
+            "definition": "entity.template"
+        }
+    ]
+}

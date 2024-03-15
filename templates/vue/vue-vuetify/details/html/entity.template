@@ -1,0 +1,25 @@
+<div id="{{entityName}}-details">
+    <v-container class="grey lighten-5">
+       <v-card
+         class="pa-2"
+         outlined
+         tile
+       >
+         <v-card-title><slot name="title">{{pascal entityName}} Details</slot></v-card-title>
+         <v-list-item three-line>
+           <v-list-item-content>
+             {{propertiesCode}}
+           </v-list-item-content>
+
+           <v-list-item-avatar
+             tile
+             size="80"
+             color="grey"
+           ></v-list-item-avatar>
+         </v-list-item>
+         <v-card-actions>
+            <slot name="action"><v-btn class="success" @click="close">Close</v-btn></slot>
+         </v-card-actions>
+       </v-card>
+     </v-container>
+  </div>

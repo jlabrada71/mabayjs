@@ -1,0 +1,12 @@
+
+{{import}}
+
+module.exports = class RoutesRegister {
+  constructor() {
+  }
+
+  registerIn( app ) {
+    
+    {{registration}}
+  }
+};

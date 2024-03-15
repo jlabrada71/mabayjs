@@ -1,0 +1,92 @@
+const express = require('express')
+const { ObjectId } = require('mongodb')
+const {{pascal entityName}}Repository = require('../lib/{{entityName}}-repository')
+const authorizer = require('../../auth/authorizer')
+const { log, debug } = require('../../lib/logger')
+
+const router = express.Router()
+
+function handleError(resource, reason, message, code) {
+  debug(`ERROR: ${reason}:${message}`)
+  resource.status(code || 500).json({ error: message })
+}
+
+function returnResult (result, res) {
+  res.json(result)
+}
+
+router.get('/', async (req, res) => {
+  debug('=======')
+  debug(Object.keys(req))
+  debug(req.query)
+  const {{entityName}}Repository = new {{pascal entityName}}Repository()
+  try {
+    const result = await {{entityName}}Repository.select(req.query)
+    debug(result)
+    returnResult(result, res)
+  } catch (e) {
+    log(e.stack, '{{entityName}}-routes')
+    returnResult('Error', res)
+  }
+})
+
+router.get('/:id', async (req, res, next) => {
+  const {{entityName}}Repository = new {{pascal entityName}}Repository()
+  try {
+    const record = { _id: ObjectId(req.params.id) }
+    const result = await {{entityName}}Repository.select(record)
+    returnResult(result, res)
+  } catch (e) {
+    log(e.stack, '{{entityName}}-routes')
+    returnResult('Error', res)
+  }
+})
+
+router.put('/:id', authorizer, async (req, res, next) => {
+  const {{entityName}}Repository = new {{pascal entityName}}Repository()
+  try {
+    const record = { _id: ObjectId(req.params.id) }
+    const { {{entityName}} } = req.body
+    if ('_id' in {{entityName}}) {
+      delete {{entityName}}._id
+    }
+    debug('updating:', '{{entityName}}-routes')
+    debug(record)
+    debug('with data', '{{entityName}}-routes')
+    debug({{entityName}})
+    const result = await {{entityName}}Repository.update(record, { $set: {{entityName}} })
+    returnResult(result, res)
+  } catch (e) {
+    log(e.stack, '{{entityName}}-routes')
+    returnResult('Error', res)
+  }
+})
+
+router.delete('/:id', authorizer, async (req, res, next) => {
+  const {{entityName}}Repository = new {{pascal entityName}}Repository()
+  try {
+    const record = { _id: ObjectId(req.params.id) }
+    debug('deleting', '{{entityName}}-routes')
+    debug(record)
+    const result = await {{entityName}}Repository.deleteRecord(record)
+    returnResult(result, res)
+  } catch (e) {
+    log(e.stack, '{{entityName}}-routes')
+    returnResult('Error', res)
+  }
+})
+
+router.post('/', authorizer, async (req, res, next) => {
+  debug('adding', '{{entityName}}-routes')
+  debug(req.body.{{entityName}})
+  const {{entityName}}Repository = new {{pascal entityName}}Repository()
+  try {
+    const result = await {{entityName}}Repository.insert(req.body.{{entityName}})
+    returnResult(result, res)
+  } catch (e) {
+    log(e.stack, '{{entityName}}-routes')
+    returnResult('Error', res)
+  }
+})
+
+module.exports = router

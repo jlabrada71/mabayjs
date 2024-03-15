@@ -1,0 +1,12 @@
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { HydratedDocument } from 'mongoose';
+
+
+export type {{pascal entityName}}Document = HydratedDocument<{{pascal entityName}}>;
+
+@Schema()
+export class {{pascal entityName}} {
+{{propertiesCode}}
+}
+
+export const {{pascal entityName}}Schema = SchemaFactory.createForClass({{pascal entityName}});

@@ -1,0 +1,1 @@
+        <v-list-item-title class="headline mb-1">{{expandedEntityDotPropertyName}}</v-list-item-title>

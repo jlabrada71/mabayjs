@@ -1,0 +1,10 @@
+
+<template>
+{{html}}
+</template>
+<script>
+{{script}}
+</script>
+<style>
+{{css}}
+</style>

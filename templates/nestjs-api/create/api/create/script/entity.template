@@ -1,0 +1,4 @@
+
+export class Create{{pascal entityName}}Dto {
+{{propertiesCode}}
+}

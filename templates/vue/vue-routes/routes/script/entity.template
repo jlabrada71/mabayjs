@@ -1,0 +1,8 @@
+    const {{entityName}}sRoute = {
+      path: '/{{entityName}}s',
+      name: '{{pascal entityName}}s',
+      // this generates a separate chunk (aggregateroutes.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import(/* webpackChunkName: "{{entityName}}s" */ '../views/{{pascal entityName}}View.vue'),
+    };
+    routes.push({{entityName}}sRoute);

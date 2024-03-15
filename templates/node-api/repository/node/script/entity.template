@@ -1,0 +1,98 @@
+const { MongoClient } = require('mongodb')
+const { log, debug } = require('../../lib/logger')
+
+module.exports = class {{pascal entityName}}Repository {
+  constructor () {
+    this.database = process.env.MONGO_DB
+    this.collection = '{{entityName}}s'
+    this.connection = process.env.MONGO_URL
+    debug(`database:${this.database}`)
+    debug(`connection${this.connection}`)
+  }
+
+  async insert (record) {
+    debug('Inserting new {{entityName}}', '{{entityName}}-repository')
+    debug(record)
+    let client
+    let result
+    try {
+      client = await MongoClient.connect(this.connection /* process.env.MONGO_URL */, {
+        useUnifiedTopology: true,
+        useNewUrlParser: true
+      })
+
+      const dbo = client.db(this.database)
+      const col = dbo.collection(this.collection)
+      result = await col.insertOne(record)
+      debug('Inserted', '{{entityName}}-repository')
+    } catch (e) {
+      log(JSON.stringify(e.stack, null, 2), '{{entityName}}-repository')
+    } finally {
+      client.close()
+    }
+    return result
+  }
+
+  async select (record) {
+    debug('Selecting ' + record._id, '{{entityName}}-repository')
+    let client
+    let result = []
+    try {
+      client = await MongoClient.connect(this.connection /* process.env.MONGO_URL */, {
+        useUnifiedTopology: true,
+        useNewUrlParser: true
+      })
+      const dbo = client.db(this.database)
+      const col = dbo.collection(this.collection)
+      result = await col.find(record).toArray()
+      debug('Selected', '{{entityName}}-repository')
+    } catch (e) {
+      log(JSON.stringify(e.stack, null, 2), '{{entityName}}-repository')
+    } finally {
+      client.close()
+    }
+    return result
+  }
+
+  async update (record, newValues) {
+    debug('Updating ' + record._id, '{{entityName}}-repository')
+    let client
+    let result
+    try {
+      client = await MongoClient.connect(this.connection /* process.env.MONGO_URL */, {
+        useUnifiedTopology: true,
+        useNewUrlParser: true
+      })
+      const dbo = client.db(this.database)
+      const col = dbo.collection(this.collection)
+      result = await col.updateMany(record, newValues)
+      debug('Updated', '{{entityName}}-repository')
+    } catch (e) {
+      log(JSON.stringify(e.stack, null, 2), '{{entityName}}-repository')
+    } finally {
+      client.close()
+    }
+    return result
+  }
+
+  async deleteRecord (record) {
+    debug('Deleting ' + record._id, '{{entityName}}-repository')
+    let client
+    let result
+    try {
+      client = await MongoClient.connect(this.connection /* process.env.MONGO_URL */, {
+        useUnifiedTopology: true,
+        useNewUrlParser: true
+      })
+      const dbo = client.db(this.database)
+      const col = dbo.collection(this.collection)
+      result = await col.deleteMany(record)
+      debug('Deleted', '{{entityName}}-repository')
+    } catch (e) {
+      log(JSON.stringify(e.stack, null, 2), '{{entityName}}-repository')
+    } finally {
+      client.close()
+    }
+    return result
+  }
+}

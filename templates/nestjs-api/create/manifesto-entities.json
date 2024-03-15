@@ -1,0 +1,43 @@
+{
+    "ext":".ts",
+    "fileNameTemplate" : "{{entityName}}.entity",
+    "technologies":[
+        "api"
+    ],
+    "useCases":[
+        { "name": "entities", "folder": "src/{{entityName}}s/entities" }
+    ],
+    "entity":"entity.template",
+    "contextComposite":"composite.template",
+    "contexts":[
+        "script"
+    ],
+    "generationStrategy" :"singleAggregate",
+    "primitives":[
+    {
+        "key":"entity",
+        "type":"entity",
+        "definition":"entity.template"
+    },
+    {
+        "key":"id",
+        "type":"property",
+        "definition":"id.template"
+    },
+    {
+        "key":"longtext",
+        "type":"property",
+        "definition":"longtext.template"
+    },
+    {
+        "key":"boolean",
+        "type":"property",
+        "definition":"boolean.template"
+    },
+    {
+        "key":"date",
+        "type":"property",
+        "definition":"date.template"
+    }
+    ]
+ }
