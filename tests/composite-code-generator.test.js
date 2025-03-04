@@ -1,9 +1,9 @@
 
-const fs   = require('fs');
-const CodeGenerator = require('../lib/code-generator');
-const DumbCodeGenerator = require('../lib/dumb-code-generator');
-const CompositeCodeGenerator = require('../lib/composite-code-generator');
-const TemplateCompiler = require('../lib/template-compiler');
+import fs   from 'fs';
+import { CodeGenerator } from '../lib/code-generator';
+import { DumbCodeGenerator } from '../lib/dumb-code-generator';
+import { CompositeCodeGenerator } from '../lib/composite-code-generator';
+import { TemplateCompiler } from '../lib/template-compiler';
 
 //jest.mock('../problem-repository');
 

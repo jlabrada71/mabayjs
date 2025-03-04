@@ -1,9 +1,9 @@
 
-const fs   = require('fs');
-const EntityDefinition = require('../lib/entity-definition');
-const CodeGenerator = require('../lib/code-generator');
-const TaskCodeGenerator = require('../lib/task-code-generator');
-const TemplateCompiler = require('../lib/template-compiler');
+import fs   from 'fs';
+import { EntityDefinition } from '../lib/entity-definition';
+import { CodeGenerator } from '../lib/code-generator';
+import { TaskCodeGenerator } from '../lib/task-code-generator';
+import { TemplateCompiler } from '../lib/template-compiler';
 
 //jest.mock('../problem-repository');
 

@@ -1,5 +1,5 @@
 
-const Handlebars = require('handlebars');
+import Handlebars from 'handlebars';
 
 
 //jest.mock('../problem-repository');

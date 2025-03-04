@@ -11,7 +11,7 @@ definitions:
     station:
       name: name
       description: description
-      owner: person aggregate
+      owner: person
       nicks: collectionOf name
       wheels: collectionOf wheel
   value-objects:

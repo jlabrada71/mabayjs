@@ -1,4 +1,4 @@
-var nodemailer = require('nodemailer');
+import nodemailer  from 'nodemailer';
 
 
 describe('Send email tests', () => {

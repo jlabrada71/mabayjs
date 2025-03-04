@@ -1,5 +1,5 @@
 
-const { reduce } = require('../lib/utils');
+import { reduce } from '../lib/utils';
 
 describe('Story Details API Testing', () => {
   beforeEach(() => {

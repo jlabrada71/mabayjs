@@ -1,5 +1,5 @@
 
-const fs   = require('fs');
+import fs  from 'fs';
 
 //jest.mock('../problem-repository');
 

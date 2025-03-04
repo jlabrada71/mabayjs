@@ -7,8 +7,8 @@ describe('Story Details API Testing', () => {
 
   it('should learn whats the next problem from the student profile', () => {
     expect(process.argv).toEqual(
-      ['/usr/local/bin/node',
-        '/Users/jlabrada/Documents/source/yaml/node_modules/jest-worker/build/workers/processChild.js']
+      ['/home/jlabrada/.nvm/versions/node/v20.18.0/bin/node',
+        '/media/jlabrada/data/sources/mabay/node_modules/jest/bin/jest.js']
     );
   });
 });

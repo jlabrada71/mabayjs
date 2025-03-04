@@ -1,8 +1,6 @@
-
-const fs   = require('fs');
-const CodeGenerator = require('../lib/code-generator');
-const AggregateCodeGenerator = require('../lib/aggregate-code-generator');
-const TemplateCompiler = require('../lib/template-compiler');
+import { CodeGenerator } from '../lib/code-generator';
+import { AggregateCodeGenerator } from '../lib/aggregate-code-generator';
+import { TemplateCompiler } from '../lib/template-compiler';
 
 //jest.mock('../problem-repository');
 

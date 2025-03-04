@@ -1,6 +1,6 @@
-const { replace } = require('../lib/utils');
+import { replace } from '../lib/utils';
 
-const FileModifier = require('../lib/helpers/file-modifier');
+import { FileModifier } from '../lib/helpers/file-modifier';
 
 describe('Add a variable to the vuex store', () => {
   beforeEach(() => {
@@ -26,7 +26,7 @@ describe('Add a variable to the vuex store', () => {
 
   });
 
-  it('complex add state', () => {
+  it('complex add state', async () => {
     const config = {
       fileName: '/Users/jlabrada/Documents/source/yaml/templates/vuex/sample.js',
       templatePath: '/Users/jlabrada/Documents/source/yaml/templates/vuex',
@@ -35,9 +35,12 @@ describe('Add a variable to the vuex store', () => {
     
     const fileModifier = new FileModifier(config);
 
-    fileModifier.generate( 'prueba', '/Users/jlabrada/Documents/source/yaml/templates/vuex/sampleoutput.js' )
-      .then(() => { }).catch((error) => {
-        console.log('error');
-      });
+    try {
+      await fileModifier.generate( 'prueba', '/Users/jlabrada/Documents/source/yaml/templates/vuex/sampleoutput.js' );
+
+    } catch(e) {
+      expect(e.message).toBe("ENOENT: no such file or directory, open '/Users/jlabrada/Documents/source/yaml/templates/vuex/sample.js'");
+      console.log(e.message);
+    }
   });
 });

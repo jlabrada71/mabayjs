@@ -1,8 +1,8 @@
 
-const fs   = require('fs');
-const ValueObjectDefinition = require('../lib/value-object-definition');
-const CodeGenerator = require('../lib/code-generator');
-const TemplateCompiler = require('../lib/template-compiler');
+import fs   from 'fs';
+import { ValueObjectDefinition } from '../lib/value-object-definition';
+import { CodeGenerator } from '../lib/code-generator';
+import { TemplateCompiler } from '../lib/template-compiler';
 
 //jest.mock('../problem-repository');
 
